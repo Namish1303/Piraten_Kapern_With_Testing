@@ -40,4 +40,8 @@ public class Game implements Serializable {
         return 0;
     }
 
+    public Dice[] getGameDices(){
+       return null;
+    }
+
 }

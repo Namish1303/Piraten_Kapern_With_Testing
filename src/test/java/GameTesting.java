@@ -3,9 +3,12 @@ import org.junit.jupiter.api.Test;
 
 public class GameTesting {
     Game g;
+    Dice[] dice;
+    Card c;
     public GameTesting()
     {
         g = new Game();
+        dice = new Dice[8];
     }
 
     @Test
@@ -22,6 +25,14 @@ public class GameTesting {
         Assertions.assertEquals(4000,g.collectionPts(8));
 
     }
+
+    @Test
+    public void getDices()
+    {
+        dice = g.getGameDices();
+        Assertions.assertEquals(dice[7]!=null,g.getGameDices());
+    }
+
 
 
 
