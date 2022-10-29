@@ -72,9 +72,10 @@ public class GameTesting {
         System.out.println("After 1 coin in dice set, map should have 1 coin");
         Assertions.assertEquals(1,g.DiceToCollection(dice).get("Coin"));
 
-
-
     }
+
+
+
 
 
 

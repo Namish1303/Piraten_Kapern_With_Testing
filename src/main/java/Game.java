@@ -57,6 +57,7 @@ public class Game implements Serializable {
        return deck.reveal();
     }
 
+    // function to convert a set of dices into a map for easy calculation
     public HashMap<String, Integer> DiceToCollection(Dice[] d)
     {
         HashMap<String,Integer> map = new HashMap<>();
