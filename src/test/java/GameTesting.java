@@ -75,6 +75,52 @@ public class GameTesting {
     }
 
 
+    @Test
+    public void CalculatePoints()
+    {
+        System.out.println("RUNNING TESTS FOR CALCULATING POINTS");
+        Dice d1 = new Dice("Coin");
+        Dice d2 = new Dice("Sword");
+        Dice d3 = new Dice("Diamond");
+
+        dice[0] = d1;
+        dice[1] = d2;
+        dice[2] = d3;
+        dice[3] = d1;
+        dice[4] = d1;
+        dice[5] = d3;
+        dice[6] = d2;
+        dice[7] = d3;
+        // 2 swords, 3 coins, 3 diamonds
+
+        c = new Card("Coin",1,0);
+
+        System.out.println("2 swords, 3 coins, 3 diamonds with a Coin card should result in (300+300+100+200+100 = 1000)");
+        Assertions.assertEquals(1000,g.regularPts(dice,c));
+
+        c = new Card("Captain",1,0);
+        System.out.println("2 swords, 3 coins, 3 diamonds with a Captain card should result in (300+300+100+100 *2 = 1600)");
+        Assertions.assertEquals(1600,g.regularPts(dice,c));
+
+
+        dice[1] = d3;
+        dice[6] = d1;
+        c = new Card("Monkey Bussiness",1,0);
+        System.out.println("4 Coins and 4 diamonds with Monkey Bussiness Card result in (200+200+400+400+500 = 1700" );
+        Assertions.assertEquals(1700,g.regularPts(dice,c));
+
+
+        for(int i=0; i<8;i++)
+        {
+            dice[i] = d2;
+        }
+
+        System.out.println("8 swords with a coin face card should get (4000+100)");
+        Assertions.assertEquals(4100,g.regularPts(dice,c));
+
+     }
+
+
 
 
 

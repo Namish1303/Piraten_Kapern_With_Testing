@@ -76,4 +76,10 @@ public class Game implements Serializable {
         return map;
     }
 
+
+    // function to calculate points in a regular scenario
+    public int regularPts(Dice[] D, Card C)
+    {
+        return 0;
+    }
 }
