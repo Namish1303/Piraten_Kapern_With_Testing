@@ -14,7 +14,7 @@ public class GameTesting {
     @Test
     public void collPts()
     {
-        System.out.println("RUNNING TESTS FOR COLLECTIONS POINTS");
+        System.out.println("\n\nRUNNING TESTS FOR COLLECTIONS POINTS");
         System.out.println("Collection of 3 is 100 pts");
         Assertions.assertEquals(100,g.collectionPts(3));
 
@@ -31,7 +31,7 @@ public class GameTesting {
     {
         dice = g.getGameDices();
         Assertions.assertEquals(dice,g.getGameDices());
-        System.out.println("\n8 dices received from game class");
+        System.out.println("\n\nDICE TEST\n8 dices received from game class");
     }
 
     @Test
@@ -39,12 +39,13 @@ public class GameTesting {
     {
         c = g.getGameCard();
         Assertions.assertEquals(c.getClass(),g.getGameCard().getClass());
-        System.out.println("\nCard received from game class");
+        System.out.println("\n\nCARD TEST\nCard received from game class");
     }
 
     @Test
     public void ConvertToMap()
     {
+        System.out.println("\n\nRUNNING TESTS FOR CONVERSTION OF DICE SET TO A MAP");
         Dice d = new Dice("Sword");
         Dice d2 = new Dice("Monkey");
         for(int i=0; i<8;i++)

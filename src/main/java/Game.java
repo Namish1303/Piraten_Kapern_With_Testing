@@ -59,7 +59,20 @@ public class Game implements Serializable {
 
     public HashMap<String, Integer> DiceToCollection(Dice[] d)
     {
-        return null;
+        HashMap<String,Integer> map = new HashMap<>();
+
+        for(int i=0; i<d.length;i++)
+        {
+            if(map.containsKey(d[i].reveal()))
+            {
+                map.put(d[i].reveal(),map.get(d[i].reveal()) + 1);
+            }
+            else
+            {
+                map.put(d[i].reveal(),1);
+            }
+        }
+        return map;
     }
 
 }
