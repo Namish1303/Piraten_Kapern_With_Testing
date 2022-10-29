@@ -218,4 +218,9 @@ public class Game implements Serializable {
         return tempPts;
     }
 
+    public int isMoveValid(Dice[] d, int[] pos, Card c)
+    {
+        return 3;
+    }
+
 }

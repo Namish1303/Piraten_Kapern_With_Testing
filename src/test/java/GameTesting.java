@@ -180,6 +180,40 @@ public class GameTesting {
 
     }
 
+    @Test
+    public void ValidMoves()
+    {
+        System.out.println("\n\nRUNNNING TESTS TO SEE IF MOVES ARE VALID");
+        Dice d1 = new Dice("Skull");
+        Dice d2 = new Dice("Sword");
+        for(int i=0; i<8;i++)
+        {
+            dice[i] = d2;
+        }
+        dice[1] =d1;
+        dice[2] =d1;
+
+        int[] pos = new int[2];
+        pos[0] = 2;
+        pos[1] = 3;
+        c = new Card("Coin",1,0);
+        System.out.println("If my dice 2 and 3 are skulls i cannot re-reoll them, if i have a coin card");
+        Assertions.assertEquals(0,g.isMoveValid(dice,pos,c));
+
+        pos[1]=4;
+        c = new Card("Sorceress",1,0);
+        System.out.println("I can re-reroll 1 of them if i have a sorceress card");
+        Assertions.assertEquals(2,g.isMoveValid(dice,pos,c));
+
+
+        c = new Card("Coin",1,0);
+        pos[0] = 7;
+        pos[1] = 8;
+        System.out.println("I can re-roll any non-skulls with any card");
+        Assertions.assertEquals(0,g.isMoveValid(dice,pos,c));
+    }
+
+
 
 
 
