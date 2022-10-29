@@ -101,7 +101,7 @@ public class GameServer implements Serializable {
     }
 
     public void gameLoop() {
-
+        /*
         int pts = 0;
         while (gameEnd) {
 
@@ -141,11 +141,11 @@ public class GameServer implements Serializable {
 
         }
         //announce winner after the loop ends
-        returnWinner();
+        returnWinner();*/
 
     }
 
-    public void returnWinner() {
+   /* public void returnWinner() {
         int j = 0;
         int highest=0;
         for (int i = 0; i < scores.length; i++) {
@@ -181,7 +181,7 @@ public class GameServer implements Serializable {
             }
         }
 
-    }
+    }*/
 
 
     public class Server implements Runnable {
@@ -293,7 +293,7 @@ public class GameServer implements Serializable {
 
     }
 
-    public void playTurn(Server s, int playerNum) {
+   /* public void playTurn(Server s, int playerNum) {
         Dice[] d = new Dice[8];
         Card c;
         c = game.getGameCard();
@@ -550,7 +550,7 @@ public class GameServer implements Serializable {
             }
         }
 
-    }
+    }*/
 
 }
 
