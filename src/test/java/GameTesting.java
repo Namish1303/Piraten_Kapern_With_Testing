@@ -30,7 +30,7 @@ public class GameTesting {
     public void getDices()
     {
         dice = g.getGameDices();
-        Assertions.assertEquals(dice[7]!=null,g.getGameDices());
+        Assertions.assertEquals(dice,g.getGameDices());
     }
 
 

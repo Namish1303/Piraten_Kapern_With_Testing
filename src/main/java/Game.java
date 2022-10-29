@@ -41,7 +41,12 @@ public class Game implements Serializable {
     }
 
     public Dice[] getGameDices(){
-       return null;
+        for(int i=0;i<8;i++)
+        {
+            dice[i].randomize();
+        }
+
+        return dice;
     }
 
 }
