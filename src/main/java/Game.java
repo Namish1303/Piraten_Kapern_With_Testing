@@ -21,6 +21,7 @@ public class Game implements Serializable {
 
     }
 
+    // function to calculate the points of collections
     public int collectionPts(int num)
     {
         switch (num){
@@ -40,6 +41,7 @@ public class Game implements Serializable {
         return 0;
     }
 
+    // function to send back 8 game dices
     public Dice[] getGameDices(){
         for(int i=0;i<8;i++)
         {
@@ -47,6 +49,12 @@ public class Game implements Serializable {
         }
 
         return dice;
+    }
+
+    // function to send the top card from the deck
+    public Card getGameCard()
+    {
+       return null;
     }
 
 }

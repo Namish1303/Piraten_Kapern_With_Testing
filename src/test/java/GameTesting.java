@@ -33,6 +33,14 @@ public class GameTesting {
         Assertions.assertEquals(dice,g.getGameDices());
     }
 
+    @Test
+    public void getCard()
+    {
+        c = g.getGameCard();
+        Assertions.assertEquals(c,g.getGameCard());
+    }
+
+
 
 
 
