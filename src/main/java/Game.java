@@ -194,4 +194,10 @@ public class Game implements Serializable {
             return false;
         }
     }
+
+    public int IslePts(Dice[] d, Card c)
+    {
+       return 0;
+    }
+
 }

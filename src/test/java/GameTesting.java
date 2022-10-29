@@ -78,7 +78,7 @@ public class GameTesting {
     @Test
     public void CalculatePoints()
     {
-        System.out.println("RUNNING TESTS FOR CALCULATING POINTS");
+        System.out.println("\n\nRUNNING TESTS FOR CALCULATING POINTS");
         Dice d1 = new Dice("Coin");
         Dice d2 = new Dice("Sword");
         Dice d3 = new Dice("Diamond");
@@ -124,7 +124,7 @@ public class GameTesting {
      @Test
     public void IsIOD()
      {
-         System.out.println("CHECK WHETHER SHOULD GO TO ISLE OF DEAD OR NOT");
+         System.out.println("\n\nCHECK WHETHER SHOULD GO TO ISLE OF DEAD OR NOT");
          Dice d1 = new Dice("Skull");
          Dice d2 = new Dice("Sword");
          for(int i=0; i<8;i++)
@@ -152,6 +152,32 @@ public class GameTesting {
 
      }
 
+    @Test
+    public void IODpts()
+    {
+        System.out.println("\n\nTESTS TO SEE THE DEDUCTIONS FROM ISLE OF DEAD");
+
+        Dice d1 = new Dice("Skull");
+        Dice d2 = new Dice("Sword");
+        for(int i=0; i<8;i++)
+        {
+            dice[i] = d1;
+        }
+        dice[1] =d2;
+        dice[2] =d2;
+        c = new Card("Coin",1,0);
+        System.out.println("With 6 skulls in your set with a coin card you should be deduction 600 from everyone else");
+        Assertions.assertEquals(600,g.IslePts(dice,c));
+
+        c = new Card("Captain",1,0);
+        System.out.println("With 6 skulls in your set with a Captain card you should be deductiong 1200 from everyone else");
+        Assertions.assertEquals(1200,g.IslePts(dice,c));
+        
+        dice[3] = d2;
+        System.out.println("With 5 skulls in your set with a 2 Skull card,you should be dedcution 700 from everyone else ");
+        Assertions.assertEquals(700,g.IslePts(dice,c));
+
+    }
 
 
 
