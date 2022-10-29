@@ -42,6 +42,40 @@ public class GameTesting {
         System.out.println("\nCard received from game class");
     }
 
+    @Test
+    public void ConvertToMap()
+    {
+        Dice d = new Dice("Sword");
+        Dice d2 = new Dice("Monkey");
+        for(int i=0; i<8;i++)
+        {
+            if(i%2==0)
+            {
+                dice[i] = d;
+            }
+            else
+            {
+                dice[i] = d2;
+            }
+        }
+
+        System.out.println("Map should have 4 swords");
+        Assertions.assertEquals(4,g.DiceToCollection(dice).get("Sword"));
+
+        System.out.println("Map should have 4 monkeys");
+        Assertions.assertEquals(4,g.DiceToCollection(dice).get("Monkey"));
+
+        Dice d3 = new Dice("Coin");
+        dice[7] = d3;
+
+        System.out.println("After 1 coin in dice set, map should have 1 coin");
+        Assertions.assertEquals(1,g.DiceToCollection(dice).get("Coin"));
+
+
+
+    }
+
+
 
 
 

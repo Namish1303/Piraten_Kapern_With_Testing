@@ -57,4 +57,9 @@ public class Game implements Serializable {
        return deck.reveal();
     }
 
+    public HashMap<String, Integer> DiceToCollection(Dice[] d)
+    {
+        return null;
+    }
+
 }
