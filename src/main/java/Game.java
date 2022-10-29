@@ -104,6 +104,7 @@ public class Game implements Serializable {
         //System.out.println("Card: " +cardName);
         if(cardName == "Coin")
         {
+            pts +=100;
             if(occurence.containsKey("Coin"))
             {
                 occurence.put("Coin",occurence.get("Coin") + 1);
@@ -115,6 +116,7 @@ public class Game implements Serializable {
         }
         else if(cardName == "Diamond")
         {
+            pts +=100;
             if(occurence.containsKey("Diamond"))
             {
                 occurence.put("Diamond",occurence.get("Diamond") + 1);

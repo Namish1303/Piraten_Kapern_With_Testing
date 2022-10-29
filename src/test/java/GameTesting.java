@@ -114,9 +114,9 @@ public class GameTesting {
         {
             dice[i] = d2;
         }
-
-        System.out.println("8 swords with a coin face card should get (4000+100)");
-        Assertions.assertEquals(4100,g.regularPts(dice,c));
+        c = new Card("Coin",1,0);
+        System.out.println("8 swords with a coin face card should get (4000+100+500)");
+        Assertions.assertEquals(4600,g.regularPts(dice,c));
 
      }
 
