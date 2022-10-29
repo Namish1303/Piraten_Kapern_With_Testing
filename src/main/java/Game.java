@@ -220,7 +220,7 @@ public class Game implements Serializable {
 
     public int isMoveValid(Dice[] d, int[] pos, Card c)
     {
-        return 3;
+       return 3;
     }
 
 }

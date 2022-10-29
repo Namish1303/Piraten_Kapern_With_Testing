@@ -205,12 +205,17 @@ public class GameTesting {
         System.out.println("I can re-reroll 1 of them if i have a sorceress card");
         Assertions.assertEquals(2,g.isMoveValid(dice,pos,c));
 
+        pos[1] =3;
+        System.out.println("I cannot re-roll 2 skulls even with a sorceress card");
+        Assertions.assertEquals(0,g.isMoveValid(dice,pos,c));
 
         c = new Card("Coin",1,0);
         pos[0] = 7;
         pos[1] = 8;
         System.out.println("I can re-roll any non-skulls with any card");
         Assertions.assertEquals(1,g.isMoveValid(dice,pos,c));
+
+
     }
 
 
