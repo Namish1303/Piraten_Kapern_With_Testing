@@ -54,7 +54,7 @@ public class Game implements Serializable {
     // function to send the top card from the deck
     public Card getGameCard()
     {
-       return null;
+       return deck.reveal();
     }
 
 }

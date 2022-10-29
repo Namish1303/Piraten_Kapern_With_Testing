@@ -31,13 +31,15 @@ public class GameTesting {
     {
         dice = g.getGameDices();
         Assertions.assertEquals(dice,g.getGameDices());
+        System.out.println("\n8 dices received from game class");
     }
 
     @Test
     public void getCard()
     {
         c = g.getGameCard();
-        Assertions.assertEquals(c,g.getGameCard());
+        Assertions.assertEquals(c.getClass(),g.getGameCard().getClass());
+        System.out.println("\nCard received from game class");
     }
 
 
