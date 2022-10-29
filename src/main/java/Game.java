@@ -162,4 +162,10 @@ public class Game implements Serializable {
         }
         return pts;
     }
+
+    // function to check whether player goes to Isle of Dead
+    public boolean isIsleOfDead(Dice[] d, int n, Card c)
+    {
+        return true;
+    }
 }

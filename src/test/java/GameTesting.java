@@ -121,6 +121,39 @@ public class GameTesting {
      }
 
 
+     @Test
+    public void IsIOD()
+     {
+         System.out.println("CHECK WHETHER SHOULD GO TO ISLE OF DEAD OR NOT");
+         Dice d1 = new Dice("Skull");
+         Dice d2 = new Dice("Sword");
+         for(int i=0; i<8;i++)
+         {
+             dice[i] = d2;
+         }
+
+         dice[1]=d1;
+         dice[2]=d1;
+         c = new Card("Chest",1,0);
+         System.out.println("Having 2 skulls in your set should not send you to Isle of Dead");
+         Assertions.assertFalse(g.isIsleOfDead(dice,1,c));
+
+         dice[3]=d1;
+         dice[4]=d1;
+         System.out.println("Having 4 skulls in your set should not send you to Isle of Dead after your 1st re rell");
+         Assertions.assertFalse(g.isIsleOfDead(dice,2,c));
+
+         System.out.println("Having 4 skulls in your set should not send you to Isle of Dead before your 1st re rell");
+         Assertions.assertTrue(g.isIsleOfDead(dice,1,c));
+
+         c = new Card("Skulls",2,0);
+         System.out.println("Having 2 skulls in set + 2 skulls card sen you to Isle of Dead before 1st re-roll");
+         Assertions.assertTrue(g.isIsleOfDead(dice,1,c));
+
+     }
+
+
+
 
 
 
