@@ -23,7 +23,20 @@ public class Game implements Serializable {
 
     public int collectionPts(int num)
     {
-
+        switch (num){
+            case 3:
+                return 100;
+            case 4:
+                return 200;
+            case 5:
+                return 500;
+            case 6:
+                return 1000;
+            case 7:
+                return 2000;
+            case 8:
+                return 4000;
+        }
         return 0;
     }
 
