@@ -197,7 +197,25 @@ public class Game implements Serializable {
 
     public int IslePts(Dice[] d, Card c)
     {
-       return 0;
+        int tempPts;
+        HashMap<String,Integer> temp = new HashMap<>();
+        temp = DiceToCollection(d);
+        tempPts = temp.get("Skull") * 100;
+
+        if(c.reveal() == "Skulls")
+        {
+            tempPts += c.getNumber() * 100;
+        }
+        else if(c.reveal() == "Captain")
+        {
+            tempPts *= 2;
+        }
+        else
+        {
+            return tempPts;
+        }
+
+        return tempPts;
     }
 
 }

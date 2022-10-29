@@ -172,8 +172,9 @@ public class GameTesting {
         c = new Card("Captain",1,0);
         System.out.println("With 6 skulls in your set with a Captain card you should be deductiong 1200 from everyone else");
         Assertions.assertEquals(1200,g.IslePts(dice,c));
-        
+
         dice[3] = d2;
+        c= new Card("Skulls",2,0);
         System.out.println("With 5 skulls in your set with a 2 Skull card,you should be dedcution 700 from everyone else ");
         Assertions.assertEquals(700,g.IslePts(dice,c));
 
