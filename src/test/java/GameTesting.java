@@ -210,7 +210,7 @@ public class GameTesting {
         pos[0] = 7;
         pos[1] = 8;
         System.out.println("I can re-roll any non-skulls with any card");
-        Assertions.assertEquals(0,g.isMoveValid(dice,pos,c));
+        Assertions.assertEquals(1,g.isMoveValid(dice,pos,c));
     }
 
 
