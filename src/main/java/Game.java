@@ -166,6 +166,32 @@ public class Game implements Serializable {
     // function to check whether player goes to Isle of Dead
     public boolean isIsleOfDead(Dice[] d, int n, Card c)
     {
-        return true;
+
+        int count=0;
+        if(c.reveal() == "Skulls")
+        {
+            count = c.getNumber();
+        }
+
+        if(n!=1)
+        {
+            return false;
+        }
+
+
+        else
+        {
+            HashMap<String,Integer> temp = new HashMap<>();
+            temp = DiceToCollection(d);
+            if(!temp.containsKey("Skull"))
+            {
+                return false;
+            }
+            if(temp.get("Skull") >= (4-count)) {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
