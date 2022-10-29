@@ -80,6 +80,84 @@ public class Game implements Serializable {
     // function to calculate points in a regular scenario
     public int regularPts(Dice[] D, Card C)
     {
-        return 0;
+        Map<String,Integer> occurence = new HashMap<>();
+        int pts = 0;
+        for(int i = 0; i<8; i++)
+        {
+            //System.out.println(D[i].reveal());
+            if(D[i].reveal() == "Coin" || D[i].reveal() == "Diamond")
+            {
+                pts += 100;
+            }
+
+            if(occurence.containsKey(D[i].reveal()))
+            {
+                occurence.put(D[i].reveal(),occurence.get(D[i].reveal()) + 1);
+            }
+            else
+            {
+                occurence.put(D[i].reveal(),1);
+            }
+        }
+
+        String cardName = C.reveal();
+        //System.out.println("Card: " +cardName);
+        if(cardName == "Coin")
+        {
+            if(occurence.containsKey("Coin"))
+            {
+                occurence.put("Coin",occurence.get("Coin") + 1);
+            }
+            else
+            {
+                occurence.put("Coin",1);
+            }
+        }
+        else if(cardName == "Diamond")
+        {
+            if(occurence.containsKey("Diamond"))
+            {
+                occurence.put("Diamond",occurence.get("Diamond") + 1);
+            }
+            else
+            {
+                occurence.put("Diamond",1);
+            }
+        }
+
+        //Monkey Business card conditions
+        else if(cardName == "Monkey Business")
+        {
+            if(occurence.containsKey("Monkey") && occurence.containsKey("Parrot"))
+            {
+                occurence.put("Monkey",occurence.get("Monkey") + occurence.get("Parrot"));
+                occurence.remove("Parrot");
+            }
+        }
+        //System.out.println(occurence);
+        boolean fullChest = true;
+
+        //Calculation points for Sets
+        for(Map.Entry<String,Integer> entry: occurence.entrySet())
+        {
+            pts += collectionPts(entry.getValue());
+            if(collectionPts(entry.getValue())==0 && (entry.getKey()!="Coin") && (entry.getKey()!="Diamond"))
+            {
+                fullChest=false;
+
+            }
+        }
+        //full chest condition
+        if(fullChest)
+        {
+            pts += 500;
+        }
+
+        //doubling the score if the card is "Captain"
+        if(cardName == "Captain")
+        {
+            pts *=2;
+        }
+        return pts;
     }
 }
