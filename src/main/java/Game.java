@@ -220,7 +220,29 @@ public class Game implements Serializable {
 
     public int isMoveValid(Dice[] d, int[] pos, Card c)
     {
-       return 3;
+        int count = 0;
+        for(int i=0;i<pos.length;i++)
+        {
+            if(d[pos[i]-1].reveal() == "Skull")
+            {
+                count+=1;
+            }
+        }
+
+        if(count ==1 && c.reveal()=="Sorceress")
+        {
+            return 2;
+        }
+        else if(count == 0)
+        {
+            return 1;
+        }
+        else if (count >=1 && (c == null || c.reveal() != "Sorceress"))
+        {
+            return 0;
+        }
+        System.out.println(count + c.reveal());
+        return  0;
     }
 
 }
