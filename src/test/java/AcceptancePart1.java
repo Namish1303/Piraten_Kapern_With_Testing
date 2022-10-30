@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class AcceptancePart1 {
     Dice[] d;
@@ -29,7 +29,7 @@ public class AcceptancePart1 {
 
         System.out.println("\n\nROW 45: 3 skulls and 5 swords");
         Assertions.assertTrue(g.endTurn(d,c));
-        System.out.println("    Dead");
+        System.out.println("        Dead");
     }
 
     @Test
