@@ -163,6 +163,32 @@ public class AcceptancePart1 {
         Assertions.assertEquals(800,g.regularPts(d,c));
     }
 
+    @Test
+    public void Row53()
+    {
+        System.out.println("ROW 53: 2(monkey/skull/sword/parrot)");
+        Dice skull = new Dice("Skull");
+        Dice parrot = new Dice("Parrot");
+        Dice sword = new Dice("Sword");
+        Dice monkey = new Dice("Monkey");
+
+        d[0]=d[1]= monkey;
+        d[2]=d[3] = parrot;
+        d[4]=d[5] = sword;
+        d[6]=d[7]=skull;
+
+        System.out.println("        Re-rolling parrots");
+        int[] pos = {3,4};
+        d = g.shuffleDice(d,pos);
+        d[2] = monkey;
+        d[3] = sword;
+        c = new Card("Coin",1,0);
+        Assertions.assertEquals(300,g.regularPts(d,c));
+
+
+    }
+
+
 
 
 
