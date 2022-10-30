@@ -15,11 +15,11 @@ public class testRunner {
         }
 
         if(count == 0) {
-            System.out.println("All tests Passed");
+            System.out.println("\n\n\nAll tests Passed");
         }
         else
         {
-            System.out.println("Some tests passed");
+            System.out.println("\n\n\nSome tests passed");
         }
     }
 }

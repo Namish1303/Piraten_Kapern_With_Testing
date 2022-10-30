@@ -127,10 +127,6 @@ public class AcceptancePart2 {
             d = g.shuffleDice(d,pos2);
             d[5] = parrot;
         }
-        for(int i=0;i<8;i++)
-        {
-            System.out.println(d[i].reveal());
-        }
         Assertions.assertEquals(2000,g.regularPts(d,c));
 
 
