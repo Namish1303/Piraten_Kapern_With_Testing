@@ -35,7 +35,7 @@ public class AcceptancePart1 {
     @Test
     public void Row46()
     {
-        d = g.getGameDices();
+        //d = g.getGameDices();
         System.out.println("ROW 46: 1 Skull, 4 Parrots, 3 Swords");
         Dice skull = new Dice("Skull");
         Dice parrot = new Dice("Parrot");
@@ -57,6 +57,32 @@ public class AcceptancePart1 {
 
 
     }
+
+
+    @Test
+    public void Row47()
+    {
+        System.out.println("ROW 47: 2 Skull, 4 Parrots, 2 Swords");
+        Dice skull = new Dice("Skull");
+        Dice parrot = new Dice("Parrot");
+        Dice sword = new Dice("Sword");
+
+        d[0]=d[7] = skull;
+        d[1] = d[2] = d[3] = d[4] = parrot;
+        d[5]=d[6]= sword;
+
+        System.out.println("        Shuffling 2 swords");
+        int[] pos = {6,7};
+        d = g.shuffleDice(d,pos);
+
+        d[5]= skull;
+        d[6] = sword;
+        c = new Card("Coin",1,0);
+        Assertions.assertTrue(g.endTurn(d,c));
+        System.out.println("        Dead");
+    }
+
+
 
 
 
