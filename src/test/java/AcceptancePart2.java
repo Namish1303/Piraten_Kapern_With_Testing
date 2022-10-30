@@ -204,4 +204,26 @@ public class AcceptancePart2 {
         System.out.println("        Died");
 
     }
+
+    @Test
+    public void Row97()
+    {
+        d[0] = new Dice("Monkey");
+        d[1] = new Dice("Monkey");
+        d[2] = new Dice("Monkey");
+        d[3] = new Dice("Sword");
+        d[4] = new Dice("Sword");
+        d[5] = new Dice("Sword");
+        d[6] = new Dice("Coin");
+        d[7] = new Dice("Parrot");
+        System.out.println("ROW 97: 3 monkeys + 3 swords + 1 coin + 1 parrots + Coin FC  ");
+
+        Assertions.assertEquals(400,g.regularPts(d,c));
+        System.out.println("        Scored 400 pts");
+
+
+
+    }
+
+    
 }

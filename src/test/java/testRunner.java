@@ -5,12 +5,21 @@ import org.junit.runner.notification.Failure;
 public class testRunner {
 
     public static void main(String[] args) {
+
+        int count=0;
         Result result = JUnitCore.runClasses(testSuite.class);
 
         for (Failure failure : result.getFailures()) {
             System.out.println(failure.toString());
+            count+=1;
         }
 
-        System.out.println("All tests Passed");
+        if(count == 0) {
+            System.out.println("All tests Passed");
+        }
+        else
+        {
+            System.out.println("Some tests passed");
+        }
     }
 }
