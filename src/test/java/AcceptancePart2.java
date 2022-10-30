@@ -632,4 +632,55 @@ public class AcceptancePart2 {
         Assertions.assertEquals(1300,g.SeaBattlePts(d,c));
         System.out.println("        Scored 1300 points");
     }
+
+
+    @Test
+    public void Row87()
+    {
+        d = g.getGameDices();
+        d[0] = new Dice("Parrot");
+        d[1] = new Dice("Sword");
+        d[2] = new Dice("Sword");
+        d[3] = new Dice("Coin");
+        d[4] = new Dice("Diamond");
+        d[5] = new Dice("Diamond");
+        d[6] = new Dice("Parrot");
+        d[7] = new Dice("Parrot");
+        System.out.println("ROW 87: 3 parrots, 2 swords, 2 diamonds, 1 coin");
+        c = new Card("Chest",1,0);
+
+        System.out.println("        Put coin and diamond in chest");
+        d[4].InTheChest();
+        d[5].InTheChest();
+        d[3].InTheChest();
+
+        System.out.println("        Re-roll 2 swords");
+        int[] pos = {2,3};
+        d = g.shuffleDice(d,pos);
+        d[1] = new Dice("Parrot");
+        d[2] = new Dice("Parrot");
+
+        d[0].InTheChest();
+        d[1].InTheChest();
+        d[2].InTheChest();
+        d[6].InTheChest();
+        d[7].InTheChest();
+        System.out.println("        Put parrots in chest and take out diamonds and coins");
+        d[4].OutOfChest();
+        d[5].OutOfChest();
+        d[3].OutOfChest();
+
+        System.out.println("        Re-roll 3 dices");
+        int[] pos2 = {4,5,6};
+        d = g.shuffleDice(d,pos2);
+        d[4] = new Dice("Skull");
+        d[5] = new Dice("Coin");
+        d[3] = new Dice("Parrot");
+
+        Assertions.assertEquals(1100,g.ChestPts(d,c));
+        System.out.println("        Scored 1100 pts");
+
+
+    }
+
 }
