@@ -379,10 +379,13 @@ public class AcceptancePart2 {
         d[7]=new Dice("Sword");
 
         Assertions.assertEquals(900,g.IslePts(d,c));
+        System.out.println("        Deduction of 900 for everyone else");
 
 
     }
 
     
+
+
 
 }
