@@ -7,6 +7,7 @@ public class GameTesting {
     Game g;
     Dice[] dice;
     Card c;
+
     public GameTesting()
     {
         g = new Game();

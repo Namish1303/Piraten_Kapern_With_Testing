@@ -27,11 +27,12 @@ public class AcceptancePart1 {
 
         // 3 skulls and 5 swords
 
-        System.out.println("\n\nROW 45: 3 skulls and 5 swords = Die");
+        System.out.println("\n\nROW 45: 3 skulls and 5 swords");
         Assertions.assertTrue(g.endTurn(d,c));
+        System.out.println("    Dead");
     }
 
-
+    
 
 
 

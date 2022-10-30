@@ -22,6 +22,14 @@ public class Dice {
 
     public Dice(String n)
     {
+
+        values = new String[6];
+        values[0] ="Monkey";
+        values[1] = "Parrot";
+        values[2] = "Skull";
+        values[3] = "Coin";
+        values[4] = "Diamond";
+        values[5] = "Sword";
         face = n;
     }
 

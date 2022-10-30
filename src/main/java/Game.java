@@ -296,9 +296,11 @@ public class Game implements Serializable {
     public Dice[] shuffleDice(Dice[] D, int[] pos)
     {
         //System.out.println(pos);
+
         for(int j=0; j<pos.length;j++)
         {
             int i = pos[j]-1;
+            //System.out.println(D[i].reveal());
             D[i].randomize();
 
         }
