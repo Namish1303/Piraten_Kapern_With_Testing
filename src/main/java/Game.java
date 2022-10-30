@@ -84,7 +84,7 @@ public class Game implements Serializable {
     {
         Map<String,Integer> occurence = new HashMap<>();
         int pts = 0;
-        for(int i = 0; i<8; i++)
+        for(int i = 0; i<D.length; i++)
         {
             //System.out.println(D[i].reveal());
             if(D[i].reveal() == "Coin" || D[i].reveal() == "Diamond")
@@ -161,7 +161,7 @@ public class Game implements Serializable {
             }
         }
         //full chest condition
-        if(fullChest)
+        if(fullChest && (D.length ==8))
         {
             pts += 500;
         }
@@ -378,7 +378,34 @@ public class Game implements Serializable {
 
     public int ChestPts(Dice[] d, Card c)
     {
-        return 0;
+        int count =0;
+        if(endTurn(d,c))
+        {
+            for(int i=0; i<8;i++)
+            {
+                if(d[i].inChest)
+                {
+                    count+=1;
+                }
+            }
+
+            Dice[] temp = new Dice[count];
+            int j=0;
+            for(int i=0;i<8;i++)
+            {
+                if(d[i].inChest)
+                {
+                    temp[j] = d[i];
+                    j++;
+                }
+            }
+            return regularPts(temp,c);
+
+        }
+        else
+        {
+            return regularPts(d,c);
+        }
     }
 
 
