@@ -286,10 +286,9 @@ public class GameTesting {
     {
         System.out.println("\n\nTESTING SHUFFLING OF DICES");
         Dice[] d2;
-        for(int i=0;i<8;i++)
-        {
-            dice[i] = new Dice("Parrot");
-        }
+        String one,two,three;
+        dice = g.getGameDices();
+
 
         int[] pos = new int[3];
         pos[0] = 1;
@@ -297,11 +296,15 @@ public class GameTesting {
         pos[2] = 7;
 
         Boolean temp;
+        one = dice[0].reveal();
+        two = dice[2].reveal();
+        three = dice[6].reveal();
         d2 = g.shuffleDice(dice,pos);
 
-        temp = d2[1].reveal() == dice[1].reveal();
-        temp = temp & d2[3].reveal() == dice[3].reveal();
-        temp = temp & d2[7].reveal() == dice[7].reveal();
+
+        temp = d2[0].reveal() == one;
+        temp = temp & d2[2].reveal() == two;
+        temp = temp & d2[6].reveal() == three;
 
         Assertions.assertFalse(temp);
 
