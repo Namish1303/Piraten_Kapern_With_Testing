@@ -245,4 +245,9 @@ public class Game implements Serializable {
         return  0;
     }
 
+    public boolean isGameOver(int[] scores, int[] turns)
+    {
+        return false;
+    }
+
 }

@@ -219,6 +219,35 @@ public class GameTesting {
     }
 
 
+    @Test
+    public void gameOver()
+    {
+        System.out.println("\n\nCHECKING GAME OVER SCENARIOS");
+        int[] scores = new int[3];
+        int[] turns = new int[3];
+
+        scores[0] = 3100;
+        scores[1] = 2500;
+        scores[2] = 2700;
+
+        turns[0] = 5;
+        turns[1] = 5;
+        turns[2] = 5;
+
+        System.out.println("1st player has pts > 3000 after his turn, after 2nd and 3rd players turn, the game ends");
+        Assertions.assertTrue(g.isGameOver(scores,turns));
+
+        turns[2] = 4;
+        System.out.println("1st Player has pts > 3000 after his turn, 2nd player has played but 3rd players has not");
+        Assertions.assertFalse(g.isGameOver(scores,turns));
+
+        System.out.println("Player 3 has pts > 3000 after his turn, and player 1 and 2 player another turn");
+        scores[2] = 3100;
+        Assertions.assertTrue(g.isGameOver(scores,turns));
+
+    }
+
+
 
 
 
