@@ -94,5 +94,43 @@ public class AcceptancePart2 {
     }
 
 
+    @Test
+    public void Row79()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 79: 1 skull, 4 parrots, 3 monkeys  ");
+        Dice skull = new Dice("Skull");
+        Dice monkey = new Dice("Monkey");
+        Dice parrot  = new Dice("Parrot");
+
+        c = new Card("Sorceress",1,0);
+        d[0] = new Dice("Skull");
+        d[1]=d[2]=d[3]=d[4] = parrot;
+        d[5]=d[6]=d[7] = monkey;
+
+        int[] pos = {6,7,8};
+        System.out.println("        Re-rolling monkeys");
+        d = g.shuffleDice(d,pos);
+        d[5] = skull;
+        d[6]=d[7]= parrot;
+
+        System.out.println("        Check if the skull can be re-rolled then re-roll it");
+        int[] pos2 = {6};
+        Assertions.assertEquals(2,g.isMoveValid(d,pos2,c));
+
+        if(g.isMoveValid(d,pos2,c) == 2 )
+        {
+            c = new Card("null",1,0);
+            d = g.shuffleDice(d,pos2);
+            d[5] = parrot;
+        }
+        for(int i=0;i<8;i++)
+        {
+            System.out.println(d[i].reveal());
+        }
+        Assertions.assertEquals(2000,g.regularPts(d,c));
+
+
+    }
 
 }
