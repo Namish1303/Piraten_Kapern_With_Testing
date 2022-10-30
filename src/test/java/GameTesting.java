@@ -312,6 +312,24 @@ public class GameTesting {
 
     }
 
+    @Test
+    public void SeaPts()
+    {
+        c = new Card("Sea Battle",2,300);
+        dice[0] = new Dice("Monkey");
+        dice[1] = new Dice("Monkey");
+        dice[2] = new Dice("Monkey");
+        dice[3] = new Dice("Sword");
+        dice[4] = new Dice("Sword");
+        dice[5] = new Dice("Sword");
+        dice[6] = new Dice("Sword");
+        dice[7] = new Dice("Diamond");
+        System.out.println("\n\n Calculating battle points for Sea Battle");
+
+        Assertions.assertEquals(1200,g.SeaBattlePts(dice,c));
+
+    }
+
 
 
 

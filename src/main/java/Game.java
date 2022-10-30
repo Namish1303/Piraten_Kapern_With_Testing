@@ -333,5 +333,10 @@ public class Game implements Serializable {
 
     }
 
+    public int SeaBattlePts(Dice[] d, Card c)
+    {
+        return 0;
+    }
+
 
 }
