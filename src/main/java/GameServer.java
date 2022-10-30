@@ -111,8 +111,7 @@ public class GameServer implements Serializable {
             playTurn(playerServer[0], 0);
             turns[0] += 1;
             if (game.isGameOver(scores, turns)) {
-                System.out.println(scores);
-                System.out.println(turns);
+
                 gameEnd = false;
                 break;
             }
@@ -133,8 +132,7 @@ public class GameServer implements Serializable {
             playTurn(playerServer[2], 2);
             turns[2] += 1;
             if (game.isGameOver(scores, turns)) {
-                System.out.println("SCORE 3: "+scores[2]);
-                System.out.println("TURNS 3: "+turns[2]);
+
 
                 gameEnd = false;
                 break;
@@ -401,7 +399,7 @@ public class GameServer implements Serializable {
 
                     //System.out.println("REACHED");
                     choice = s.dIn.readInt();
-                    System.out.println(choice);
+                   // System.out.println(choice);
                 }
                 if (choice == 1) {
                     String[] positions;
@@ -552,7 +550,7 @@ public class GameServer implements Serializable {
 
                     //System.out.println("REACHED");
                     choice = s.dIn.readInt();
-                    System.out.println(choice);
+                   // System.out.println(choice);
                 }
                 if (choice == 1) {
                     String[] positions;
@@ -598,8 +596,7 @@ public class GameServer implements Serializable {
                         temp2[j] = Integer.parseInt(positions[j]);
                     }
 
-                    //System.out.println("Shuffling dices");
-                    //game.DicesInChest(d,temp2);
+
                     continue;
                 }
                 else if(choice == 4)
@@ -614,8 +611,7 @@ public class GameServer implements Serializable {
                     for (int j = 0; j < positions.length; j++) {
                         temp2[j] = Integer.parseInt(positions[j]);
                     }
-                    //game.DicesOutChest(d,temp2);
-                    //System.out.println("Shuffling dices");
+
                     continue;
                 }
             } catch (IOException e) {
