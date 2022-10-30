@@ -379,7 +379,7 @@ public class GameTesting {
 
         int[] pos = {5,6,7};
         g.DiceInChest(dice,pos);
-
+        System.out.println("\n\nTESTING IF DICES ARE PUT INTO CHEST");
         Assertions.assertTrue(dice[4].inChest);
         Assertions.assertTrue(dice[5].inChest);
         Assertions.assertTrue(dice[6].inChest);
