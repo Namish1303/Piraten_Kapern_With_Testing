@@ -284,5 +284,26 @@ public class AcceptancePart2 {
     }
 
 
+    @Test
+    public void Row103()
+    {
+        d[0] = new Dice("Monkey");
+        d[1] = new Dice("Monkey");
+        d[2] = new Dice("Parrot");
+        d[3] = new Dice("Coin");
+        d[4] = new Dice("Coin");
+        d[5] = new Dice("Diamond");
+        d[6] = new Dice("Diamond");
+        d[7] = new Dice("Diamond");
+        System.out.println("ROW 103: 2 monkeys, 1 parrot , 2 coins , 3 diamonds ");
+        c = new Card("Monkey Business",1,0);
 
+        Assertions.assertEquals(1200,g.regularPts(d,c));
+        System.out.println("        Scored 1200 pts");
+
+    }
+
+
+
+    
 }
