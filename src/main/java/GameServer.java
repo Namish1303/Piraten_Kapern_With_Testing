@@ -296,6 +296,7 @@ public class GameServer implements Serializable {
         Dice[] d = new Dice[8];
         Card c;
         c = game.getGameCard();
+        
         d = game.getGameDices();
         try {
             s.dOut.writeUTF(game.gameScores(scores));
@@ -596,7 +597,7 @@ public class GameServer implements Serializable {
                         temp2[j] = Integer.parseInt(positions[j]);
                     }
 
-
+                    game.DiceInChest(d,temp2);
                     continue;
                 }
                 else if(choice == 4)
@@ -611,7 +612,7 @@ public class GameServer implements Serializable {
                     for (int j = 0; j < positions.length; j++) {
                         temp2[j] = Integer.parseInt(positions[j]);
                     }
-
+                    game.DiceOutChest(d,temp2);
                     continue;
                 }
             } catch (IOException e) {
