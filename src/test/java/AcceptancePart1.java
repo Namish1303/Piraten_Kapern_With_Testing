@@ -10,6 +10,7 @@ public class AcceptancePart1 {
         d = new Dice[8];
         c= new Card("Coin",1,0);
         g = new Game();
+        System.out.println("\n\n ACCEPTANCE TESTING PART 1");
     }
 
     @Test
@@ -547,4 +548,6 @@ public class AcceptancePart1 {
         Assertions.assertEquals(600,g.regularPts(d,c));
         System.out.println("        Scored 600 pts");
     }
+
+
 }
