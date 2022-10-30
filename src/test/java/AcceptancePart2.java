@@ -508,4 +508,27 @@ public class AcceptancePart2 {
 
     }
 
+    @Test
+    public void Row118()
+    {
+        d = g.getGameDices();
+        d[0] = new Dice("Monkey");
+        d[1] = new Dice("Monkey");
+        d[2] = new Dice("Monkey");
+        d[3] = new Dice("Sword");
+        d[4] = new Dice("Parrot");
+        d[5] = new Dice("Parrot");
+        d[6] = new Dice("Skull");
+        d[7] = new Dice("Sword");
+        System.out.println("ROW 116: 4 monkeys, 1 Skull, 2 Parrot ,1 swords (2sword FC) ");
+        c = new Card("Sea Battle", 2, 300);
+
+        System.out.println("        Re-roll 2 parrots");
+        int[] pos = {5,6};
+        d = g.shuffleDice(d,pos);
+        d[5] = new Dice("Sword");
+        d[4] = new Dice("Skull");
+        Assertions.assertEquals(500,g.SeaBattlePts(d,c));
+        System.out.println("        Scored 500 points");
+    }
 }
