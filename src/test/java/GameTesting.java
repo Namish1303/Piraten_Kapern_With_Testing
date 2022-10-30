@@ -342,7 +342,34 @@ public class GameTesting {
 
 
 
+    @Test
+    public void ChestPts()
+    {
+        c = new Card("Sea Battle",2,300);
+        dice[0] = new Dice("Monkey");
+        dice[1] = new Dice("Monkey");
+        dice[2] = new Dice("Monkey");
+        dice[3] = new Dice("Sword");
+        dice[4] = new Dice("Sword");
+        dice[5] = new Dice("Sword");
+        dice[6] = new Dice("Sword");
+        dice[7] = new Dice("Diamond");
+        System.out.println("\n\nTesting for Chest points calculation");
+        System.out.println("3 monkeys, 4 swords , 1 diamond");
+        System.out.println("Putting 4 swords in chest");
+        dice[3].InTheChest();
+        dice[4].InTheChest();
+        dice[5].InTheChest();
+        dice[6].InTheChest();
 
+        System.out.println("Rolling 3 monkeys and getting 3 skulls");
+        dice[0] = new Dice("Skull");
+        dice[1] = new Dice("Skull");
+        dice[2] = new Dice("Skull");
+
+        Assertions.assertEquals(200,g.ChestPts(dice,c));
+
+    }
 
 
 

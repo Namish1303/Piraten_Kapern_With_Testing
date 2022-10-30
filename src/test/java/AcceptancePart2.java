@@ -591,12 +591,45 @@ public class AcceptancePart2 {
         d[5] = new Dice("Sword");
         d[6] = new Dice("Sword");
         d[7] = new Dice("Skull");
-        System.out.println("ROW 121: 3 monkeys, 1 Skull, 4 swords (3sword FC) ");
+        System.out.println("ROW 123: 3 monkeys, 1 Skull, 4 swords (4sword FC) ");
         c = new Card("Sea Battle", 4, 1000);
 
         Assertions.assertEquals(1300,g.SeaBattlePts(d,c));
         System.out.println("        Scored 1300 pts");
     }
 
-    
+    @Test
+    public void Row124()
+    {
+        d = g.getGameDices();
+        d[0] = new Dice("Monkey");
+        d[1] = new Dice("Monkey");
+        d[2] = new Dice("Monkey");
+        d[3] = new Dice("Sword");
+        d[4] = new Dice("Skull");
+        d[5] = new Dice("Diamond");
+        d[6] = new Dice("Parrot");
+        d[7] = new Dice("Parrot");
+        System.out.println("ROW 124: 3 monkeys, 1 sword, 1 skull, 1 diamond, 2 parrots  (4sword FC) ");
+        c = new Card("Sea Battle", 4, 1000);
+
+
+        System.out.println("        Re-roll 2 parrots");
+        int[] pos = {7,8};
+        d = g.shuffleDice(d,pos);
+        d[6] = new Dice("Sword");
+        d[7] = new Dice("Sword");
+
+
+        System.out.println("        Re-roll 3 monkeys");
+        int[] pos2 = {1,2,3};
+        d = g.shuffleDice(d,pos2);
+        d[1] = new Dice("Sword");
+        d[0] = new Dice("Parrot");
+        d[2] = new Dice("Parrot");
+
+
+        Assertions.assertEquals(1300,g.SeaBattlePts(d,c));
+        System.out.println("        Scored 1300 points");
+    }
 }

@@ -376,5 +376,10 @@ public class Game implements Serializable {
 
     }
 
+    public int ChestPts(Dice[] d, Card c)
+    {
+        return 0;
+    }
+
 
 }
