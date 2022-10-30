@@ -264,7 +264,32 @@ public class Game implements Serializable {
 
     public boolean endTurn(Dice[] D, Card c)
     {
-        return false;
+        int count =0;
+        for(int i =0; i< 8;i++)
+        {
+            if(D[i].reveal() == "Skull")
+            {
+                count +=1;
+            }
+        }
+
+        if(count == 3){
+            if(c.reveal() == "Sorceress")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else if(count>3)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
 
     }
 
