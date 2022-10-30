@@ -406,5 +406,21 @@ public class AcceptancePart1 {
 
     }
 
+    @Test
+    public void Row65()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 65: 8 coins + Diamond FC");
+        Dice coin = new Dice("Coin");
+        c = new Card("Diamond",1,0);
+
+        for(int i=0;i<8;i++)
+        {
+            d[i] = coin;
+        }
+        Assertions.assertEquals(5400,g.regularPts(d,c));
+        System.out.println("        Scored 5400 pts");
+    }
+
 
 }
