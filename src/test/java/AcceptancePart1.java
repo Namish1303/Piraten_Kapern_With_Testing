@@ -145,6 +145,24 @@ public class AcceptancePart1 {
 
     }
 
+    @Test
+    public void Row52()
+    {
+        System.out.println("ROW 52: 2 (monkey,parrot,diamond,coin with Captain FC");
+        Dice monkey = new Dice("Monkey");
+        Dice parrot = new Dice("Parrot");
+        Dice diamond = new Dice("Diamond");
+        Dice coin = new Dice("Coin");
+
+        d[0]=d[1]= monkey;
+        d[2]=d[3] = parrot;
+        d[4]=d[5] = diamond;
+        d[6]=d[7]=coin;
+        c = new Card("Captain",1,0);
+
+        Assertions.assertEquals(800,g.regularPts(d,c));
+    }
+
 
 
 
