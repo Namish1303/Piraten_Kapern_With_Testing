@@ -32,7 +32,32 @@ public class AcceptancePart1 {
         System.out.println("    Dead");
     }
 
-    
+    @Test
+    public void Row46()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 46: 1 Skull, 4 Parrots, 3 Swords");
+        Dice skull = new Dice("Skull");
+        Dice parrot = new Dice("Parrot");
+        Dice sword = new Dice("Sword");
+
+        d[0] = skull;
+        d[1] = d[2] = d[3] = d[4] = parrot;
+        d[5]=d[6]=d[7] = sword;
+
+        System.out.println("        Shuffling 3 swords");
+        int[] pos = {6,7,8};
+        d = g.shuffleDice(d,pos);
+
+        d[5] =d[6]= skull;
+        d[7] = sword;
+        c = new Card("Coin",1,0);
+        Assertions.assertTrue(g.endTurn(d,c));
+        System.out.println("        Dead");
+
+
+    }
+
 
 
 
