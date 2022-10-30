@@ -452,6 +452,12 @@ public class Game implements Serializable {
 
     }
 
+    public void DiceOutChest(Dice[] d, int[] p)
+    {
+
+    }
+
+
 
 
 

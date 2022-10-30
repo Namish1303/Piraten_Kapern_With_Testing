@@ -385,6 +385,22 @@ public class GameTesting {
         Assertions.assertTrue(dice[6].inChest);
     }
 
+    @Test
+    public void OusideChest()
+    {
+        dice =g.getGameDices();
+        dice[0].InTheChest();
+        dice[1].InTheChest();
+        dice[7].InTheChest();
+
+        int[] pos = {1,2,8};
+        g.DiceOutChest(dice,pos);
+
+        Assertions.assertFalse(dice[0].inChest);
+        Assertions.assertFalse(dice[1].inChest);
+        Assertions.assertFalse(dice[7].inChest);
+    }
+
 
 
 
