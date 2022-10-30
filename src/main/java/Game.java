@@ -307,4 +307,27 @@ public class Game implements Serializable {
         return D;
     }
 
+    public String gameScores(int[] scores)
+    {
+        String temp;
+        temp ="";
+        temp += "----------------------------------------\n";
+        temp += String.format("%10s","Player 1");
+        temp += "|";
+        temp += String.format("%10d",scores[0]);
+        temp += "\n";
+        temp += String.format("%10s","Player 2");
+        temp += "|";
+        temp += String.format("%10d",scores[1]);
+        temp += "\n";
+        temp += String.format("%10s","Player 3");
+        temp += "|";
+        temp += String.format("%10d",scores[2]);
+        temp += "\n----------------------------------------";
+
+
+
+        return temp;
+
+    }
 }
