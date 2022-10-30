@@ -413,12 +413,19 @@ public class Game implements Serializable {
         String toSend = "";
         for(int i=0; i<d.length;i++)
         {
-            toSend += String.format("%-10d|",i+1);
+
+            toSend += String.format("%-15d|",i+1);
         }
         toSend += "\n";
         for(int i=0; i<d.length;i++)
         {
-            toSend += String.format("%-10s|",d[i].reveal());
+            if(d[i].inChest)
+            {
+                toSend += String.format("%-15s|",d[i].reveal()+"(C)");
+            }
+            else {
+                toSend += String.format("%-15s|", d[i].reveal());
+            }
         }
         toSend += "\n\n";
         if(c.reveal() == "Skulls")
