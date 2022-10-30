@@ -305,5 +305,24 @@ public class AcceptancePart2 {
 
 
 
-    
+    @Test
+    public void Row106()
+    {
+        d = g.getGameDices();
+        d[0] = new Dice("Skull");
+        d[1] = new Dice("Sword");
+        d[2] = new Dice("Sword");
+        d[3] = new Dice("Sword");
+        d[4] = new Dice("Sword");
+        d[5] = new Dice("Sword");
+        d[6] = new Dice("Sword");
+        d[7] = new Dice("Sword");
+        System.out.println("ROW 106: 1 Skull , 7 Swords (2 Skull FC) ");
+        c = new Card("Skulls",2,0);
+
+        Assertions.assertTrue(g.endTurn(d,c));
+        System.out.println("        Dead");
+
+    }
+
 }
