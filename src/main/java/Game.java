@@ -276,6 +276,10 @@ public class Game implements Serializable {
     public boolean endTurn(Dice[] D, Card c)
     {
         int count =0;
+        if(c.reveal() == "Skulls")
+        {
+            count = c.number;
+        }
         for(int i =0; i< 8;i++)
         {
             if(D[i].reveal() == "Skull")
