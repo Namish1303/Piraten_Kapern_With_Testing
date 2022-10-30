@@ -344,4 +344,45 @@ public class AcceptancePart2 {
         System.out.println("        Dead");
     }
 
+
+    @Test
+    public void Row108()
+    {
+        d = g.getGameDices();
+        d[0] = new Dice("Skull");
+        d[1] = new Dice("Skull");
+        d[2] = new Dice("Monkey");
+        d[3] = new Dice("Monkey");
+        d[4] = new Dice("Monkey");
+        d[5] = new Dice("Parrot");
+        d[6] = new Dice("Parrot");
+        d[7] = new Dice("Parrot");
+        System.out.println("ROW 107: 2 Skull , 3(monkeys/parrots) (2 Skull FC) ");
+        c = new Card("Skulls",2,0);
+
+        System.out.println("        4 skulls , means players goes to isle of dead");
+        Assertions.assertTrue(g.isIsleOfDead(d,1,c));
+
+        System.out.println("        Re-roll 3 parrots");
+        int[] pos = {6,7,8};
+        d = g.shuffleDice(d,pos);
+        d[5]=new Dice("Skull");
+        d[6] =new Dice("Skull");
+        d[7] = new Dice("Sword");
+
+        System.out.println("        Re-rolling sword and 3 monkeys");
+        int[] pos2={3,4,5,8};
+        d = g.shuffleDice(d,pos2);
+        d[2]=new Dice("Skull");
+        d[3]=new Dice("Skull");
+        d[4]=new Dice("Skull");
+        d[7]=new Dice("Sword");
+
+        Assertions.assertEquals(900,g.IslePts(d,c));
+
+
+    }
+
+    
+
 }
