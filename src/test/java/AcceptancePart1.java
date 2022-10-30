@@ -388,5 +388,23 @@ public class AcceptancePart1 {
         System.out.println("        Scored 2100 pts");
     }
 
+    @Test
+    public void Row64()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 64: 8 coins");
+        Dice coin = new Dice("Coin");
+        c = new Card("Coin",1,0);
+
+        for(int i=0;i<8;i++)
+        {
+            d[i] = coin;
+        }
+
+        Assertions.assertEquals(5400,g.regularPts(d,c));
+        System.out.println("        Scored 5400 pts");
+
+    }
+
 
 }

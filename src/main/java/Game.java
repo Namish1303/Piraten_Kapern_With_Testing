@@ -37,6 +37,8 @@ public class Game implements Serializable {
                 return 2000;
             case 8:
                 return 4000;
+            case 9:
+                return 4000;
         }
         return 0;
     }
