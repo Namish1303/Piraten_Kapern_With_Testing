@@ -115,6 +115,37 @@ public class AcceptancePart1 {
     }
 
 
+    @Test
+    public void Row50()
+    {
+        System.out.println("ROW 50: 1 Skull, 2 Parrot, 3 Swords, 2 Coins");
+        Dice skull = new Dice("Skull");
+        Dice parrot = new Dice("Parrot");
+        Dice sword = new Dice("Sword");
+        Dice coin = new Dice("Coin");
+
+        d = g.getGameDices();
+        d[0]= skull;
+        d[1]=d[2] = parrot;
+        d[3]=d[4]=d[5] = sword;
+        d[6]=d[7] = coin;
+
+        System.out.println("        Re-rolling parrots");
+        int[] pos = {2,3};
+        d = g.shuffleDice(d,pos);
+        d[1]=d[2] = coin;
+
+        System.out.println("        Re-rolling swords");
+        int[] pos2 = {4,5,6};
+        d = g.shuffleDice(d,pos2);
+        d[3]=d[4]=d[5] = coin;
+        c = new Card("Coin",1,0);
+        System.out.println("        1 Skull, 7 Coins with a Coin FC");
+        Assertions.assertEquals(4800,g.regularPts(d,c));
+
+    }
+
+
 
 
 
