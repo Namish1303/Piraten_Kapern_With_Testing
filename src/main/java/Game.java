@@ -247,6 +247,18 @@ public class Game implements Serializable {
 
     public boolean isGameOver(int[] scores, int[] turns)
     {
+        if(scores[0] >3000 && turns[1] >= turns[0] && turns[2] >= turns[0])
+        {
+            return true;
+        }
+        else if(scores[1] >3000 && turns[0] > turns[1] && turns[2] >= turns[1])
+        {
+            return true;
+        }
+        else if(scores[2] >3000 && turns[1] > turns[2] && turns[0] >turns[2])
+        {
+            return true;
+        }
         return false;
     }
 
