@@ -133,4 +133,26 @@ public class AcceptancePart2 {
 
     }
 
+
+    @Test
+    public void Row82()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 82: 3 parrots, 3 monkeys , 1 coin, 1 skull + Monkey Bussiness FC  ");
+        Dice skull = new Dice("Skull");
+        Dice monkey = new Dice("Monkey");
+        Dice parrot  = new Dice("Parrot");
+        Dice coin  = new Dice("Coin");
+
+        c = new Card("Monkey Business",1,0);
+
+        d[0]=d[1]=d[2] =monkey;
+        d[3]=d[4]=d[5] = parrot;
+        d[6] = skull;
+        d[7] = coin;
+
+        Assertions.assertEquals(1100,g.regularPts(d,c));
+        System.out.println("        Scored 1100 pts");
+    }
+
 }
