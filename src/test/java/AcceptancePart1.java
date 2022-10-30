@@ -549,5 +549,36 @@ public class AcceptancePart1 {
         System.out.println("        Scored 600 pts");
     }
 
+    @Test
+    public void Row71()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 71: 1 skull, 2 coins, 1(monkey/parrot), 3 swords + Diamond FC");
+        Dice skull = new Dice("Skull");
+        Dice sword = new Dice("Sword");
+        Dice parrot  = new Dice("Parrot");
+        Dice monkey = new Dice("Monkey");
+        Dice coin = new Dice("Coin");
+        c = new Card("Diamond",1,0);
+
+        d[0] = skull;
+        d[1]=d[2]= coin;
+        d[3] = monkey;
+        d[4]= parrot;
+        d[5]=d[6]=d[7] = sword;
+        int[] pos = {6,7,8};
+        System.out.println("        Re-rolling swords");
+        d = g.shuffleDice(d,pos);
+
+        d[5] = coin;
+        d[6] = monkey;
+        d[7] = parrot;
+
+        Assertions.assertEquals(500,g.regularPts(d,c));
+        System.out.println("        Scored 500 pts");
+
+    }
+    
+
 
 }
