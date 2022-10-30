@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.net.Socket;
+
 public class GameTesting {
     Game g;
     Dice[] dice;
@@ -248,7 +250,36 @@ public class GameTesting {
     }
 
 
+    @Test
+    public void isPlayerDead()
+    {
+        System.out.println("\n\nTESTING PLAYER DIEING CONDITIONS");
+        Dice d1 = new Dice("Skull");
+        Dice d2 = new Dice("Sword");
+        for(int i=0; i<8;i++)
+        {
+            dice[i] = d2;
+        }
+        dice[1] =d1;
+        dice[2] =d1;
+        c = new Card("Coin",1,0);
+        System.out.println("6 swords and 2 skulls means you are not dead, with a coin FC");
+        Assertions.assertFalse(g.endTurn(dice,c));
 
+        dice[3] = d1;
+        System.out.println("5 swords and 3 skulls means you are dead, with a coin FC");
+        Assertions.assertTrue(g.endTurn(dice,c));
+
+        c = new Card("Sorceress",1,0);
+        System.out.println("5 swords and 3 skulls with a Sorceress means not dead yet");
+        Assertions.assertFalse(g.endTurn(dice,c));
+
+        dice[4] = d1;
+        System.out.println("4 Swords and 4 skulls even with a Sorceress means dead");
+        Assertions.assertTrue(g.endTurn(dice,c));
+
+
+    }
 
 
 

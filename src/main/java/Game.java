@@ -262,4 +262,10 @@ public class Game implements Serializable {
         return false;
     }
 
+    public boolean endTurn(Dice[] D, Card c)
+    {
+        return false;
+
+    }
+
 }
