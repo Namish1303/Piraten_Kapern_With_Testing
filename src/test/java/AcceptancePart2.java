@@ -683,4 +683,47 @@ public class AcceptancePart2 {
 
     }
 
+    @Test
+    public void Row92()
+    {
+        d = g.getGameDices();
+        d[0] = new Dice("Parrot");
+        d[1] = new Dice("Coin");
+        d[2] = new Dice("Coin");
+        d[3] = new Dice("Coin");
+        d[4] = new Dice("Skull");
+        d[5] = new Dice("Skull");
+        d[6] = new Dice("Parrot");
+        d[7] = new Dice("Parrot");
+        System.out.println("ROW 92: 3 parrots, 2 Skulls, 3 coin");
+        c = new Card("Chest",1,0);
+        System.out.println("        put 3 coins in chest");
+
+        d[1].InTheChest();
+        d[2].InTheChest();
+        d[3].InTheChest();
+
+        System.out.println("        Re-roll 3 parrots");
+        int[] pos = {1,7,8};
+        d = g.shuffleDice(d,pos);
+        d[0] = new Dice("Diamond");
+        d[6] = new Dice("Diamond");
+        d[7] =new Dice("Coin");
+
+        System.out.println("        Put coin in chest");
+        d[7].InTheChest();
+
+        System.out.println("        Re-roll 2 diamonds");
+        int[] pos2 = {1,7};
+        d = g.shuffleDice(d,pos2);
+        d[0] = new Dice("Skull");
+        d[6] = new Dice("Coin");
+
+        Assertions.assertEquals(600,g.ChestPts(d,c));
+        System.out.println("    Dead with a score of 600");
+
+
+    }
+
+
 }
