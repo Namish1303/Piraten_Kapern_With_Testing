@@ -337,7 +337,7 @@ public class AcceptancePart2 {
         d[5] = new Dice("Sword");
         d[6] = new Dice("Sword");
         d[7] = new Dice("Sword");
-        System.out.println("ROW 106: 2 Skull , 6 Swords (1 Skull FC) ");
+        System.out.println("ROW 107: 2 Skull , 6 Swords (1 Skull FC) ");
         c = new Card("Skulls",1,0);
 
         Assertions.assertTrue(g.endTurn(d,c));
@@ -357,7 +357,7 @@ public class AcceptancePart2 {
         d[5] = new Dice("Parrot");
         d[6] = new Dice("Parrot");
         d[7] = new Dice("Parrot");
-        System.out.println("ROW 107: 2 Skull , 3(monkeys/parrots) (2 Skull FC) ");
+        System.out.println("ROW 108: 2 Skull , 3(monkeys/parrots) (2 Skull FC) ");
         c = new Card("Skulls",2,0);
 
         System.out.println("        4 skulls , means players goes to isle of dead");
@@ -396,7 +396,7 @@ public class AcceptancePart2 {
         d[5] = new Dice("Monkey");
         d[6] = new Dice("Monkey");
         d[7] = new Dice("Monkey");
-        System.out.println("ROW 107: 5 skulls ,3 monkeys (Captain FC) ");
+        System.out.println("ROW 110: 5 skulls ,3 monkeys (Captain FC) ");
         c = new Card("Captain",1,0);
 
         System.out.println("        5 skulls , means players goes to isle of dead");
@@ -427,7 +427,7 @@ public class AcceptancePart2 {
         d[5] = new Dice("Sword");
         d[6] = new Dice("Sword");
         d[7] = new Dice("Sword");
-        System.out.println("ROW 107: 3 skulls ,5 swords (2 Skull FC) ");
+        System.out.println("ROW 111: 3 skulls ,5 swords (2 Skull FC) ");
         c = new Card("Skulls",2,0);
 
         System.out.println("        Player should go to isle of dead");
@@ -448,5 +448,23 @@ public class AcceptancePart2 {
     }
 
 
-    
+    @Test
+    public void Row114()
+    {
+        d = g.getGameDices();
+        d[0] = new Dice("Monkey");
+        d[1] = new Dice("Monkey");
+        d[2] = new Dice("Monkey");
+        d[3] = new Dice("Monkey");
+        d[4] = new Dice("Skull");
+        d[5] = new Dice("Skull");
+        d[6] = new Dice("Skull");
+        d[7] = new Dice("Sword");
+        System.out.println("ROW 114: 4 monkeys ,3 skulls, 1 sword (2 Sword FC) ");
+        c = new Card("Sea Battle",2,300);
+
+        Assertions.assertTrue(g.endTurn(d,c));
+        Assertions.assertEquals(-300,g.SeaBattlePts(d,c));
+        System.out.println("        Deduction of 300 points");
+    }
 }
