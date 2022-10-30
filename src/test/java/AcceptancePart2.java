@@ -155,4 +155,30 @@ public class AcceptancePart2 {
         System.out.println("        Scored 1100 pts");
     }
 
+    @Test
+    public void Row83()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 83: 2 (monkeys/parrots/swords/coins) + Monkey Bussiness FC  ");
+        Dice sword = new Dice("Sword");
+        Dice monkey = new Dice("Monkey");
+        Dice parrot  = new Dice("Parrot");
+        Dice coin  = new Dice("Coin");
+
+        c = new Card("Monkey Business",1,0);
+
+        d[0]=d[1] =monkey;
+        d[2]=d[3] = parrot;
+        d[4]=d[5] = sword;
+        d[6]=d[7] = coin;
+
+        int[] pos = {5,6};
+        System.out.println("        Re-rolling 2 swords");
+        d = g.shuffleDice(d,pos);
+        d[4] = monkey;
+        d[5] = parrot;
+
+        Assertions.assertEquals(1700,g.regularPts(d,c));
+    }
+
 }
