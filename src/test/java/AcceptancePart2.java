@@ -138,7 +138,7 @@ public class AcceptancePart2 {
     public void Row82()
     {
         d = g.getGameDices();
-        System.out.println("ROW 82: 3 parrots, 3 monkeys , 1 coin, 1 skull + Monkey Bussiness FC  ");
+        System.out.println("ROW 82: 3 parrots, 3 monkeys , 1 coin, 1 skull + Monkey Business FC  ");
         Dice skull = new Dice("Skull");
         Dice monkey = new Dice("Monkey");
         Dice parrot  = new Dice("Parrot");
@@ -159,7 +159,7 @@ public class AcceptancePart2 {
     public void Row83()
     {
         d = g.getGameDices();
-        System.out.println("ROW 83: 2 (monkeys/parrots/swords/coins) + Monkey Bussiness FC  ");
+        System.out.println("ROW 83: 2 (monkeys/parrots/swords/coins) + Monkey Business FC  ");
         Dice sword = new Dice("Sword");
         Dice monkey = new Dice("Monkey");
         Dice parrot  = new Dice("Parrot");
@@ -179,6 +179,26 @@ public class AcceptancePart2 {
         d[5] = parrot;
 
         Assertions.assertEquals(1700,g.regularPts(d,c));
+        System.out.println("        Scored 1700 pts");
     }
 
+    @Test
+    public void Row84()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 84: 3 skulls + 3 monkeys + 2 parrots + Monkey Business FC  ");
+        Dice skull = new Dice("Skull");
+        Dice monkey = new Dice("Monkey");
+        Dice parrot  = new Dice("Parrot");
+        c = new Card("Monkey Business",1,0);
+
+        d[0]=d[1] =monkey;
+        d[2]=d[3] = parrot;
+        d[4]=d[5]=d[6]=skull;
+        d[7] =monkey;
+
+        Assertions.assertTrue(g.endTurn(d,c));
+        System.out.println("        Died");
+
+    }
 }
