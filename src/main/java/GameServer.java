@@ -101,8 +101,7 @@ public class GameServer implements Serializable {
     }
 
     public void gameLoop() {
-        /*
-        int pts = 0;
+        /*int pts = 0;
         while (gameEnd) {
 
             // for player 1
@@ -145,7 +144,7 @@ public class GameServer implements Serializable {
 
     }
 
-   /* public void returnWinner() {
+    public void returnWinner() {
         int j = 0;
         int highest=0;
         for (int i = 0; i < scores.length; i++) {
@@ -181,7 +180,7 @@ public class GameServer implements Serializable {
             }
         }
 
-    }*/
+    }
 
 
     public class Server implements Runnable {
@@ -293,7 +292,7 @@ public class GameServer implements Serializable {
 
     }
 
-   /* public void playTurn(Server s, int playerNum) {
+    /*public void playTurn(Server s, int playerNum) {
         Dice[] d = new Dice[8];
         Card c;
         c = game.getGameCard();
@@ -317,7 +316,7 @@ public class GameServer implements Serializable {
                     s.dOut.writeUTF(temp + "\n" + game.printDandC(d, c));
                     temp = "";
                     s.dOut.flush();
-                    if (game.isDead(d, c)) {
+                    if (game.endTurn(d, c)) {
                         s.dOut.writeInt(-1);
                         s.dOut.writeUTF("You Are Dead !!!! Chance over \n You scored 0");
                         s.dOut.flush();
@@ -396,7 +395,7 @@ public class GameServer implements Serializable {
                 temp = "";
                 s.dOut.flush();
 
-                if (game.isDead(d, c)) {
+                if (game.endTurn(d, c)) {
                     s.dOut.writeInt(-1);
                     s.dOut.writeUTF("You Are Dead !!!! Chance over \n You scored 0 but received a deduction of " + c.bonus);
                     s.dOut.flush();
