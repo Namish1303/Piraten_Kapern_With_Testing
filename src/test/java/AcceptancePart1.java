@@ -142,6 +142,7 @@ public class AcceptancePart1 {
         c = new Card("Coin",1,0);
         System.out.println("        1 Skull, 7 Coins with a Coin FC");
         Assertions.assertEquals(4800,g.regularPts(d,c));
+        System.out.println("        Scored 4800 pts");
 
     }
 
@@ -161,6 +162,7 @@ public class AcceptancePart1 {
         c = new Card("Captain",1,0);
 
         Assertions.assertEquals(800,g.regularPts(d,c));
+        System.out.println("        Scored 800 pts");
     }
 
     @Test
@@ -184,9 +186,28 @@ public class AcceptancePart1 {
         d[3] = sword;
         c = new Card("Coin",1,0);
         Assertions.assertEquals(300,g.regularPts(d,c));
+        System.out.println("        Scored 300 pts");
 
 
     }
+
+    @Test
+    public void Row54()
+    {
+        System.out.println("ROW 54: 3(monkey/sword) + 2 Skulls");
+        Dice skull = new Dice("Skull");
+        Dice sword = new Dice("Sword");
+        Dice monkey = new Dice("Monkey");
+
+        d[0]=d[1]=skull;
+        d[2]=d[3]=d[4]= sword;
+        d[5]=d[6]=d[7] = monkey;
+        c = new Card("Coin",1,0);
+        Assertions.assertEquals(300,g.regularPts(d,c));
+        System.out.println("        Scored 300 pts");
+
+    }
+
 
 
 
