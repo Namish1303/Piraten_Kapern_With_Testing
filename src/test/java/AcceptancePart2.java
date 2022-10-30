@@ -225,5 +225,20 @@ public class AcceptancePart2 {
 
     }
 
-    
+    @Test
+    public void Row98()
+    {
+        d[0] = new Dice("Monkey");
+        d[1] = new Dice("Monkey");
+        d[2] = new Dice("Monkey");
+        d[3] = new Dice("Sword");
+        d[4] = new Dice("Sword");
+        d[5] = new Dice("Sword");
+        d[6] = new Dice("Coin");
+        d[7] = new Dice("Coin");
+        System.out.println("ROW 98: 3 monkeys + 3 swords + 2 Coins + Captain FC  ");
+        c = new Card("Captain",1,0);
+        Assertions.assertEquals(1800,g.regularPts(d,c));
+        System.out.println("        Scored 1800 pts");
+    }
 }
