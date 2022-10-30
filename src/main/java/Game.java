@@ -145,10 +145,19 @@ public class Game implements Serializable {
         for(Map.Entry<String,Integer> entry: occurence.entrySet())
         {
             pts += collectionPts(entry.getValue());
-            if(collectionPts(entry.getValue())==0 && (entry.getKey()!="Coin") && (entry.getKey()!="Diamond"))
+            if(cardName == "Sea Battle")
             {
-                fullChest=false;
+                if(collectionPts(entry.getValue())==0 && (entry.getKey()!="Coin") && (entry.getKey()!="Diamond") && (entry.getKey()!="Sword"))
+                {
+                    fullChest=false;
 
+                }
+            }
+            else {
+                if (collectionPts(entry.getValue()) == 0 && (entry.getKey() != "Coin") && (entry.getKey() != "Diamond")) {
+                    fullChest = false;
+
+                }
             }
         }
         //full chest condition
