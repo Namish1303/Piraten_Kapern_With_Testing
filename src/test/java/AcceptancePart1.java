@@ -578,6 +578,25 @@ public class AcceptancePart1 {
         System.out.println("        Scored 500 pts");
 
     }
+
+    @Test
+    public void Row72()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 72: 4 monkeys, 2 coins ,2 skulls");
+        Dice coin = new Dice("Coin");
+        Dice monkey = new Dice("Monkey");
+        Dice skull = new Dice("Skull");
+        c = new Card("Coin",1,0);
+
+        d[0]=d[1]=d[2]=d[3] =monkey;
+        d[4]=d[5] = skull;
+        d[6]=d[7] = coin;
+
+        Assertions.assertEquals(600,g.regularPts(d,c));
+        System.out.println("        Scored 600 pts");
+
+    }
     
 
 
