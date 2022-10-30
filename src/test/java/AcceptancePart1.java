@@ -83,6 +83,38 @@ public class AcceptancePart1 {
     }
 
 
+    @Test
+    public void Row48()
+    {
+        System.out.println("ROW 48: 1 Skull, 4 Parrots, 3 Swords");
+        Dice skull = new Dice("Skull");
+        Dice parrot = new Dice("Parrot");
+        Dice sword = new Dice("Sword");
+
+        d[0] = skull;
+        d[1] = d[2] = d[3] = d[4] = parrot;
+        d[5]=d[6]=d[7]= sword;
+
+        System.out.println("        Shuffling 3 swords");
+        int[] pos = {6,7,8};
+        d = g.shuffleDice(d,pos);
+
+        Dice monkey = new Dice("Monkey");
+        d[5]= skull;
+        d[6] =d[7]= monkey;
+
+        int[] pos2 = {7,8};
+        System.out.println("        Shuffling 2 monkeys");
+        d = g.shuffleDice(d,pos2);
+
+        d[6] = skull;
+        d[7] = monkey;
+        c = new Card("Coin",1,0);
+        Assertions.assertTrue(g.endTurn(d,c));
+        System.out.println("        Dead");
+    }
+
+
 
 
 
