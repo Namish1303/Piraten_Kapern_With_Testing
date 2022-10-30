@@ -281,6 +281,34 @@ public class GameTesting {
 
     }
 
+    @Test
+    public void shuffle()
+    {
+        System.out.println("\n\nTESTING SHUFFLING OF DICES");
+        Dice[] d2;
+        for(int i=0;i<8;i++)
+        {
+            dice[i] = new Dice("Parrot");
+        }
+
+        int[] pos = new int[3];
+        pos[0] = 1;
+        pos[1] = 3;
+        pos[2] = 7;
+
+        Boolean temp;
+        d2 = g.shuffleDice(dice,pos);
+
+        temp = d2[1].reveal() == dice[1].reveal();
+        temp = temp & d2[3].reveal() == dice[3].reveal();
+        temp = temp & d2[7].reveal() == dice[7].reveal();
+
+        Assertions.assertFalse(temp);
+
+
+    }
+
+
 
 
 

@@ -293,4 +293,10 @@ public class Game implements Serializable {
 
     }
 
+    public Dice[] shuffleDice(Dice[] D, int[] pos)
+    {
+
+        return D;
+    }
+
 }
