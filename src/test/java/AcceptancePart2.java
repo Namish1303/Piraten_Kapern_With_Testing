@@ -384,7 +384,35 @@ public class AcceptancePart2 {
 
     }
 
-    
+    @Test
+    public void Row110()
+    {
+        d = g.getGameDices();
+        d[0] = new Dice("Skull");
+        d[1] = new Dice("Skull");
+        d[2] = new Dice("Skull");
+        d[3] = new Dice("Skull");
+        d[4] = new Dice("Skull");
+        d[5] = new Dice("Monkey");
+        d[6] = new Dice("Monkey");
+        d[7] = new Dice("Monkey");
+        System.out.println("ROW 107: 5 skulls ,3 monkeys (Captain FC) ");
+        c = new Card("Captain",1,0);
+
+        System.out.println("        5 skulls , means players goes to isle of dead");
+        Assertions.assertTrue(g.isIsleOfDead(d,1,c));
+
+        System.out.println("        Re-roll 3 monkeys");
+        int[] pos = {6,7,8};
+        d = g.shuffleDice(d,pos);
+        d[5]=new Dice("Skull");
+        d[6] =new Dice("Skull");
+        d[7] = new Dice("Coin");
+
+        Assertions.assertEquals(1400,g.IslePts(d,c));
+        System.out.println("        Deduction of 1400 for everyone else");
+
+    }
 
 
 
