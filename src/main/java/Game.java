@@ -408,5 +408,39 @@ public class Game implements Serializable {
         }
     }
 
+    public String printDandC(Dice[] d, Card c)
+    {
+        String toSend = "";
+        for(int i=0; i<d.length;i++)
+        {
+            toSend += String.format("%-10d|",i+1);
+        }
+        toSend += "\n";
+        for(int i=0; i<d.length;i++)
+        {
+            toSend += String.format("%-10s|",d[i].reveal());
+        }
+        toSend += "\n\n";
+        if(c.reveal() == "Skulls")
+        {
+            toSend += "Card: "+c.number +" "+ c.reveal();
+        }
+        else if(c.reveal() == "Sea Battle")
+        {
+            toSend+= "Card: "+c.number+" "+c.reveal();
+            toSend += "\nBonus: "+c.bonus;
+        }
+        else {
+            toSend += "Card: " + c.reveal();
+        }
+
+        return toSend;
+
+
+
+
+    }
+
+
 
 }
