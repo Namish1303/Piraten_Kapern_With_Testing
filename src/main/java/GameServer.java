@@ -296,10 +296,9 @@ public class GameServer implements Serializable {
         Dice[] d = new Dice[8];
         Card c;
         c = game.getGameCard();
-
         d = game.getGameDices();
-        int[] positions = {1,2,3,4,5,6,7,8};
-        game.DiceOutChest(d,positions);
+        int[] positions2 = {1,2,3,4,5,6,7,8};
+        game.DiceOutChest(d,positions2);
         try {
             s.dOut.writeUTF(game.gameScores(scores));
             s.dOut.flush();
