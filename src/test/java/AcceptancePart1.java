@@ -294,4 +294,30 @@ public class AcceptancePart1 {
     }
 
 
+    @Test
+    public void Row59()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 59: 2 coin and parrots, 3 swords , 1 skull (Captain FC)");
+        Dice skull = new Dice("Skull");
+        Dice sword = new Dice("Sword");
+        Dice parrot  = new Dice("Parrot");
+        Dice coin = new Dice("Coin");
+        c = new Card("Captain",1,0);
+
+        d[0]=d[1] = coin;
+        d[2]=d[3] =parrot;
+        d[4]=d[5]=d[6]= sword;
+        d[7] = skull;
+
+        System.out.println("        Re-rolling parrots");
+        int[] pos = {3,4};
+        d = g.shuffleDice(d,pos);
+        d[2]= coin;
+        d[3] = sword;
+
+        Assertions.assertEquals(1200,g.regularPts(d,c));
+        System.out.println("        Scored 1200 pts");
+
+    }
 }
