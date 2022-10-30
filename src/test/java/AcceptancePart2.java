@@ -467,4 +467,34 @@ public class AcceptancePart2 {
         Assertions.assertEquals(-300,g.SeaBattlePts(d,c));
         System.out.println("        Deduction of 300 points");
     }
+
+    @Test
+    public void Row115()
+    {
+        d = g.getGameDices();
+        d[0] = new Dice("Parrot");
+        d[1] = new Dice("Parrot");
+        d[2] = new Dice("Parrot");
+        d[3] = new Dice("Parrot");
+        d[4] = new Dice("Skull");
+        d[5] = new Dice("Skull");
+        d[6] = new Dice("Sword");
+        d[7] = new Dice("Sword");
+        System.out.println("ROW 115: 2 Swords ,2 skulls, 4 parrots (3 Sword FC) ");
+        c = new Card("Sea Battle",3,500);
+
+        System.out.println("        Re-roll 4 parrots");
+        int[] pos = {1,2,3,4};
+        d = g.shuffleDice(d,pos);
+        d[0] = new Dice("Skull");
+        d[1] = new Dice("Skull");
+        d[2] = new Dice("Skull");
+        d[3] = new Dice("Skull");
+
+        Assertions.assertTrue(g.endTurn(d,c));
+        Assertions.assertEquals(-500,g.SeaBattlePts(d,c));
+        System.out.println("        Deduction of 500 points");
+
+
+    }
 }
