@@ -296,7 +296,7 @@ public class GameServer implements Serializable {
         Dice[] d = new Dice[8];
         Card c;
         c = game.getGameCard();
-        
+
         d = game.getGameDices();
         try {
             s.dOut.writeUTF(game.gameScores(scores));
@@ -347,7 +347,7 @@ public class GameServer implements Serializable {
                             temp2[j] = Integer.parseInt(positions[j]);
                         }
                         if (game.isMoveValid(d, temp2, c) == 0) {
-                            temp = "Cannot roll Skulls";
+                            temp = "\n\nCannot roll Skulls";
                             continue;
                         } else if (game.isMoveValid(d, temp2, c) == 1) {
                             d = game.shuffleDice(d, temp2);
@@ -388,7 +388,7 @@ public class GameServer implements Serializable {
 
                 if (game.endTurn(d, c)) {
                     s.dOut.writeInt(-1);
-                    s.dOut.writeUTF("You Are Dead !!!! Chance over \n You scored 0 but received a deduction of " + c.bonus);
+                    s.dOut.writeUTF("You Are Dead !!!! Chance over \nYou scored 0 but received a deduction of " + c.bonus);
                     s.dOut.flush();
                     addToSheet(game.SeaBattlePts(d,c), playerNum);
                     break;
@@ -465,7 +465,7 @@ public class GameServer implements Serializable {
 
                 if (after != null && after.get("Skull") == before.get("Skull")) {
                     s.dOut.writeInt(-1);
-                    s.dOut.writeUTF("Could not roll Skull!! \n You deducted " + game.IslePts(d, c) + " of all other players");
+                    s.dOut.writeUTF("Could not roll Skull!! \nYou deducted " + game.IslePts(d, c) + " of all other players");
                     s.dOut.flush();
                     break;
 
