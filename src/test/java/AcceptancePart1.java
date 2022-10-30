@@ -423,4 +423,20 @@ public class AcceptancePart1 {
     }
 
 
+    @Test
+    public void Row66()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 66: 8 swords + Captain FC");
+        Dice sword = new Dice("sword");
+        c = new Card("Captain",1,0);
+
+        for(int i=0;i<8;i++)
+        {
+            d[i] = sword;
+        }
+
+        Assertions.assertEquals(9000,g.regularPts(d,c));
+        System.out.println("        Scored 9000 pts");
+    }
 }
