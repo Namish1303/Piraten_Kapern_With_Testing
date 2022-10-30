@@ -428,7 +428,7 @@ public class AcceptancePart1 {
     {
         d = g.getGameDices();
         System.out.println("ROW 66: 8 swords + Captain FC");
-        Dice sword = new Dice("sword");
+        Dice sword = new Dice("Sword");
         c = new Card("Captain",1,0);
 
         for(int i=0;i<8;i++)
@@ -438,5 +438,28 @@ public class AcceptancePart1 {
 
         Assertions.assertEquals(9000,g.regularPts(d,c));
         System.out.println("        Scored 9000 pts");
+    }
+
+
+    @Test
+    public void Row67()
+    {
+        d = g.getGameDices();
+        System.out.println("ROW 66: 8 swords + Captain FC");
+        Dice sword = new Dice("Sword");
+        Dice monkey = new Dice("Monkey");
+        c = new Card("Coin",1,0);
+
+        for(int i=0;i<6;i++)
+        {
+            d[i] = monkey;
+        }
+        d[6]=d[7] = sword;
+        System.out.println("        Re-roll swords");
+        int[] pos = {7,8};
+        d = g.shuffleDice(d,pos);
+        d[6]=d[7]=monkey;
+        Assertions.assertEquals(4600,g.regularPts(d,c));
+        System.out.println("        Scored 4600 pts");
     }
 }
