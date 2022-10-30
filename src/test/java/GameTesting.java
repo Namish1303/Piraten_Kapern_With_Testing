@@ -284,7 +284,7 @@ public class GameTesting {
     @Test
     public void shuffle()
     {
-        System.out.println("\n\nTESTING SHUFFLING OF DICES");
+        System.out.println("\n\nTESTING SHUFFLING OF DICES\nBefore shuffle should be different than after shuffle");
         Dice[] d2;
         String one,two,three;
         dice = g.getGameDices();
