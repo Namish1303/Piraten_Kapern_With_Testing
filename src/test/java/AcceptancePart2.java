@@ -70,25 +70,28 @@ public class AcceptancePart2 {
 
         c = new Card("Sorceress",1,0);
 
-        d[0]=d[1]=d[2]= skull;
+        d[0]=new Dice("Skull");
+        d[1] = new Dice("Skull");
+        d[2] = new Dice("Skull");
         d[3]=d[4]=d[5] = parrot;
         d[6]=d[7] = sword;
+
 
         System.out.println("        To check if skull can be rolled then reroll");
         int[] pos2 ={3};
         Assertions.assertEquals(2,g.isMoveValid(d,pos2,c));
 
-        if(g.isMoveValid(d,pos2,c) == 2 )
-        {
-            c = new Card("null",1,0);
-            d = g.shuffleDice(d,pos2);
+        if(g.isMoveValid(d,pos2,c) == 2 ) {
+            c = new Card("null", 1, 0);
+            d = g.shuffleDice(d, pos2);
             d[2] = parrot;
         }
-
         int[] pos = {7,8};
         System.out.println("        Re-rolling 2 swords");
         d = g.shuffleDice(d,pos);
         d[6]=d[7] = parrot;
+
+
 
         Assertions.assertEquals(1000,g.regularPts(d,c));
     }
