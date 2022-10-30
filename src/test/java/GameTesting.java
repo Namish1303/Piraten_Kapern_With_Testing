@@ -372,6 +372,20 @@ public class GameTesting {
     }
 
 
+    @Test
+    public void InsideChest()
+    {
+        dice = g.getGameDices();
+
+        int[] pos = {5,6,7};
+        g.DiceInChest(dice,pos);
+
+        Assertions.assertTrue(dice[4].inChest);
+        Assertions.assertTrue(dice[5].inChest);
+        Assertions.assertTrue(dice[6].inChest);
+    }
+
+
 
 
 

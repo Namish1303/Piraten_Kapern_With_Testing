@@ -442,5 +442,12 @@ public class Game implements Serializable {
     }
 
 
+    public void DiceInChest(Dice[] d, int[] p)
+    {
+
+    }
+
+
+
 
 }

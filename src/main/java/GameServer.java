@@ -1,4 +1,5 @@
 
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -101,7 +102,8 @@ public class GameServer implements Serializable {
     }
 
     public void gameLoop() {
-        /*int pts = 0;
+
+        int pts = 0;
         while (gameEnd) {
 
             // for player 1
@@ -140,7 +142,7 @@ public class GameServer implements Serializable {
 
         }
         //announce winner after the loop ends
-        returnWinner();*/
+        returnWinner();
 
     }
 
@@ -292,7 +294,7 @@ public class GameServer implements Serializable {
 
     }
 
-    /*public void playTurn(Server s, int playerNum) {
+    public void playTurn(Server s, int playerNum) {
         Dice[] d = new Dice[8];
         Card c;
         c = game.getGameCard();
@@ -307,7 +309,10 @@ public class GameServer implements Serializable {
             SeaBattle(s, d, c, playerNum);
         } else if (game.isIsleOfDead(d, 1, c)) {
             IsleOfDead(s, d, c, playerNum);
-        } else {
+        }
+        else if(c.reveal()=="Chest") {
+            ChestPlay(s,d,c,playerNum);
+        }else{
             String temp = "";
             while (true) {
                 try {
@@ -327,7 +332,7 @@ public class GameServer implements Serializable {
                         s.dOut.writeUTF("1. Roll Dices \n2. End Turn");
                         s.dOut.flush();
 
-                        System.out.println("REACHED");
+                        //System.out.println("REACHED");
                         choice = s.dIn.readInt();
                         System.out.println(choice);
                     }
@@ -363,27 +368,14 @@ public class GameServer implements Serializable {
                         //s.dIn.readUTF();
                         addToSheet(game.regularPts(d, c), playerNum);
                         break;
-                    } else if (choice == 3) {   // for treasure chest card
-                        String[] positions;
-                        s.dOut.writeUTF("Enter positions of dice you want to keep in chest (1,4,5...)");
-                        s.dOut.flush();
-                        positions = s.dIn.readUTF().split(",");
-                        int[] temp2 = new int[positions.length];
-                        for (int j = 0; j < positions.length; j++) {
-                            temp2[j] = Integer.parseInt(positions[j]);
-                        }
-
-                        //System.out.println("Shuffling dices");
-                        d = game.shuffleDice(d, temp2);
-                        continue;
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
-
     }
+
 
     public void SeaBattle(Server s, Dice[] d, Card c, int playerNum) {
         String temp = "";
@@ -399,7 +391,7 @@ public class GameServer implements Serializable {
                     s.dOut.writeInt(-1);
                     s.dOut.writeUTF("You Are Dead !!!! Chance over \n You scored 0 but received a deduction of " + c.bonus);
                     s.dOut.flush();
-                    addToSheet(0 - c.bonus, playerNum);
+                    addToSheet(game.SeaBattlePts(d,c), playerNum);
                     break;
 
                 } else {
@@ -440,21 +432,7 @@ public class GameServer implements Serializable {
                     s.dOut.writeInt(200);
                     s.dOut.flush();
                     HashMap<String, Integer> tempMap = new HashMap<>();
-                    tempMap = game.DiceToCollection(d);
-                    if (tempMap.containsKey("Sword")) {
-                        if (tempMap.get("Sword") >= c.number) {
-                            pts += c.bonus;
-                            pts += game.regularPts(d, c);
-                        }
-                        else
-                        {
-                            pts = 0 - c.bonus;
-                        }
-                    }
-                    else
-                    {
-                        pts = 0 - c.bonus;
-                    }
+                    pts = game.SeaBattlePts(d,c);
 
                     s.dOut.writeUTF("Chance Ended!! \n You scored " + pts);
                     s.dOut.flush();
@@ -549,7 +527,103 @@ public class GameServer implements Serializable {
             }
         }
 
-    }*/
+    }
+
+    public void ChestPlay(Server s, Dice[] d, Card c,int playerNum)
+    {
+        String temp = "";
+        while (true) {
+            try {
+                int choice;
+
+                s.dOut.writeUTF(temp + "\n" + game.printDandC(d, c));
+                temp = "";
+                s.dOut.flush();
+                if (game.endTurn(d, c)) {
+                    s.dOut.writeInt(-1);
+                    s.dOut.writeUTF("You Are Dead !!!! Chance over \n You scored "+game.ChestPts(d,c));
+                    s.dOut.flush();
+                    addToSheet(game.ChestPts(d, c), playerNum);
+                    break;
+                } else {
+                    s.dOut.writeInt(1);
+                    s.dOut.writeUTF("1. Roll Dices \n2. End Turn \n3.Put Dice in chest \n4.Take Dice out of chest");
+                    s.dOut.flush();
+
+                    //System.out.println("REACHED");
+                    choice = s.dIn.readInt();
+                    System.out.println(choice);
+                }
+                if (choice == 1) {
+                    String[] positions;
+                    s.dOut.writeInt(100);
+                    s.dOut.flush();
+                    s.dOut.writeUTF("Enter positions of dice you want to reroll (1,4,5...)");
+                    s.dOut.flush();
+                    positions = s.dIn.readUTF().split(",");
+                    int[] temp2 = new int[positions.length];
+                    for (int j = 0; j < positions.length; j++) {
+                        temp2[j] = Integer.parseInt(positions[j]);
+                    }
+                    if (game.isMoveValid(d, temp2, c) == 0) {
+                        temp = "Cannot roll Skulls";
+                        continue;
+                    } else if (game.isMoveValid(d, temp2, c) == 1) {
+                        d = game.shuffleDice(d, temp2);
+                        continue;
+                    } else {
+                        d = game.shuffleDice(d, temp2);
+                        c = new Card("NULL", 1, 0);
+                        continue;
+                    }
+                    //System.out.println("Shuffling dices");
+
+                } else if (choice == 2) {
+                    s.dOut.writeInt(200);
+                    s.dOut.flush();
+                    s.dOut.writeUTF("Chance Ended!! \n You scored " + game.regularPts(d, c));
+                    s.dOut.flush();
+                    //s.dIn.readUTF();
+                    addToSheet(game.ChestPts(d, c), playerNum);
+                    break;
+                } else if (choice == 3) {   // for treasure chest card
+                    String[] positions;
+                    s.dOut.writeInt(100);
+                    s.dOut.flush();
+                    s.dOut.writeUTF("Enter positions of dice you want to keep in chest (1,4,5...)");
+                    s.dOut.flush();
+                    positions = s.dIn.readUTF().split(",");
+                    int[] temp2 = new int[positions.length];
+                    for (int j = 0; j < positions.length; j++) {
+                        temp2[j] = Integer.parseInt(positions[j]);
+                    }
+
+                    //System.out.println("Shuffling dices");
+                    //game.DicesInChest(d,temp2);
+                    continue;
+                }
+                else if(choice == 4)
+                {
+                    String[] positions;
+                    s.dOut.writeInt(100);
+                    s.dOut.flush();
+                    s.dOut.writeUTF("Enter positions of dice you want out of the chest (1,4,5...)");
+                    s.dOut.flush();
+                    positions = s.dIn.readUTF().split(",");
+                    int[] temp2 = new int[positions.length];
+                    for (int j = 0; j < positions.length; j++) {
+                        temp2[j] = Integer.parseInt(positions[j]);
+                    }
+                    //game.DicesOutChest(d,temp2);
+                    //System.out.println("Shuffling dices");
+                    continue;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
 }
 
