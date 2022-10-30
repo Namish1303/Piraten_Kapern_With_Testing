@@ -493,4 +493,26 @@ public class AcceptancePart2 {
 
 
     }
+
+
+    @Test
+    public void Row116()
+    {
+        d = g.getGameDices();
+        d[0] = new Dice("Monkey");
+        d[1] = new Dice("Monkey");
+        d[2] = new Dice("Sword");
+        d[3] = new Dice("Sword");
+        d[4] = new Dice("Skull");
+        d[5] = new Dice("Skull");
+        d[6] = new Dice("Skull");
+        d[7] = new Dice("Sword");
+        System.out.println("ROW 116: 2 monkeys, 3 skulls ,3 swords (4sword FC) ");
+        c = new Card("Sea Battle",4,1000);
+
+        Assertions.assertTrue(g.endTurn(d,c));
+        Assertions.assertEquals(-1000,g.SeaBattlePts(d,c));
+        System.out.println("        Deduction of 1000 points");
+    }
+
 }
