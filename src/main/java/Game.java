@@ -335,7 +335,32 @@ public class Game implements Serializable {
 
     public int SeaBattlePts(Dice[] d, Card c)
     {
-        return 0;
+        if(endTurn(d,c))
+        {
+            return 0-c.bonus;
+        }
+        else
+        {
+            HashMap<String,Integer> sb = new HashMap<>();
+            sb = DiceToCollection(d);
+
+            if(sb.containsKey("Sword"))
+            {
+                if(sb.get("Sword") >= c.number)
+                {
+                    return (regularPts(d,c)+c.bonus);
+                }
+                else
+                {
+                    return 0-c.bonus;
+                }
+            }
+            else
+            {
+                return 0-c.bonus;
+            }
+        }
+
     }
 
 

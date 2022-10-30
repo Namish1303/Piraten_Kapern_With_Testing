@@ -324,10 +324,20 @@ public class GameTesting {
         dice[5] = new Dice("Sword");
         dice[6] = new Dice("Sword");
         dice[7] = new Dice("Diamond");
-        System.out.println("\n\n Calculating battle points for Sea Battle");
+        System.out.println("\n\nTesting for Sea battle points calculation");
+        System.out.println("    2 Swords FC and 4 swords 3 monkeys and 1 diamond in dice");
 
         Assertions.assertEquals(1200,g.SeaBattlePts(dice,c));
+        System.out.println("    Scored 1200 pts");
 
+        dice[3] = new Dice("Monkey");
+        dice[4] = new Dice("Monkey");
+        dice[5] = new Dice("Monkey");
+        dice[6] = new Dice("Sword");
+
+        System.out.println("    2 Swords FC and 1 swords 6 monkeys and 1 diamond in dice");
+        Assertions.assertEquals(-300,g.SeaBattlePts(dice,c));
+        System.out.println("    Dedcution of 300 pts");
     }
 
 
