@@ -395,7 +395,7 @@ public class GameTesting {
 
         int[] pos = {1,2,8};
         g.DiceOutChest(dice,pos);
-
+        System.out.println("\n\nTESTING IF DICES ARE TAKEN OUT CHEST");
         Assertions.assertFalse(dice[0].inChest);
         Assertions.assertFalse(dice[1].inChest);
         Assertions.assertFalse(dice[7].inChest);

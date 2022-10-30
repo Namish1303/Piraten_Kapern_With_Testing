@@ -454,7 +454,11 @@ public class Game implements Serializable {
 
     public void DiceOutChest(Dice[] d, int[] p)
     {
-
+        for(int i=0;i<p.length;i++)
+        {
+            int j = p[i];
+            d[j-1].OutOfChest();
+        }
     }
 
 
