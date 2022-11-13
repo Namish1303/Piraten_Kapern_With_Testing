@@ -116,7 +116,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
   @Skull10
   Scenario Outline: Player rolls once and dies
     Given player rolls <rolls>
-    When Card is "Skull" with value <value> and bonus <bonus>
+    When Card is "Skulls" with value <value> and bonus <bonus>
     Then dies and scores 0
     Examples:
       | rolls                                                    |value| bonus |
