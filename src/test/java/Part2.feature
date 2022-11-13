@@ -56,7 +56,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     Given player rolls "Monkey,Monkey,Monkey,Monkey,Sword,Parrot,Parrot,Coin"
     When Card is "Sea Battle" with value 2 and bonus 300
     Then player re-rolls dices "6,7" and gets "Monkey,Monkey,Monkey,Monkey,Sword,Coin,Sword,Coin"
-    And scores 1200
+    And scores 1200 with SeaBattle Points
 
 
 

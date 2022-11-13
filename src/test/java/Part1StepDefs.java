@@ -74,4 +74,9 @@ public class Part1StepDefs {
     public void scoresScore(int arg0) {
         Assertions.assertEquals(arg0,g.regularPts(d,c));
     }
+
+    @And("scores {int} with SeaBattle Points")
+    public void scoresWithSeaBattlePoints(int arg0) {
+        Assertions.assertEquals(arg0,g.SeaBattlePts(d,c));
+    }
 }
