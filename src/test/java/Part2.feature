@@ -49,6 +49,14 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
       | "Monkey,Monkey,Monkey,Sword,Sword,Sword,Coin,Coin"       | "Captain"        |  0   |   0   |  1800 |
       | "Monkey,Monkey,Monkey,Sword,Sword,Sword,Sword,Diamond"   | "Coin"           |  0   |   0   |  1000 |
       | "Monkey,Monkey,Parrot,Coin,Coin,Diamond,Diamond,Diamond" | "Monkey Business"|  0   |   0   |  1200 |
+    
+    
+  @FullChest2
+  Scenario: Player has sea battle card and re-rolls once and scores
+    Given player rolls "Monkey,Monkey,Monkey,Monkey,Sword,Parrot,Parrot,Coin"
+    When Card is "Sea Battle" with value 2 and bonus 300
+    Then player re-rolls dices "6,7" and gets "Monkey,Monkey,Monkey,Monkey,Sword,Coin,Sword,Coin"
+    And scores 1200
 
 
 
