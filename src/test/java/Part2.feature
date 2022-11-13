@@ -83,5 +83,14 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
       | "Monkey,Monkey,Sword,Sword,Sword,Skull,Skull,Skull"      |  4  |   1000|  -1000|
 
 
-
+  @SeaBattle20
+  Scenario Outline: Player has Sea Battle card and re-rolls once and dies
+    Given player rolls <rolls>
+    When Card is "Sea Battle" with value <value> and bonus <bonus>
+    Then player re-rolls dices <number> and gets <reroll>
+    And Player dies and gets a deduction of <score>
+    Examples:
+      | rolls                                                    |value| bonus | score | number   | reroll                                              |
+      | "Sword,Sword,Skull,Skull,Parrot,Parrot,Parrot,Parrot"    |  3  |   500 |  -500 | "5,6,7,8"|"Sword,Sword,Skull,Skull,Skull,Skull,Skull,Skull"    |
+      | "Monkey,Monkey,Monkey,Monkey,Sword,Sword,Skull,Skull"    |  3  |   500 |  -500 | "1,2,3,4"|"Skull,Skull,Sword,Sword,Sword,Sword,Skull,Skull"    |
 
