@@ -94,3 +94,10 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
       | "Sword,Sword,Skull,Skull,Parrot,Parrot,Parrot,Parrot"    |  3  |   500 |  -500 | "5,6,7,8"|"Sword,Sword,Skull,Skull,Skull,Skull,Skull,Skull"    |
       | "Monkey,Monkey,Monkey,Monkey,Sword,Sword,Skull,Skull"    |  3  |   500 |  -500 | "1,2,3,4"|"Skull,Skull,Sword,Sword,Sword,Sword,Skull,Skull"    |
 
+
+  @SeaBattle21
+  Scenario: Player has Sea Battle card and re-rolls once and scores
+    Given player rolls "Monkey,Monkey,Monkey,Monkey,Sword,Skull,Parrot,Parrot"
+    When Card is "Sea Battle" with value 2 and bonus 300
+    Then player re-rolls dices "7,8" and gets "Monkey,Monkey,Monkey,Monkey,Sword,Skull,Sword,Skull"
+    And scores 500 with SeaBattle Points
