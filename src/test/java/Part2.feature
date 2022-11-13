@@ -60,3 +60,16 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
 
 
 
+  @SeaBattle
+  Scenario Outline: Player has Sea Battle card and rolls once and scores
+    Given player rolls <rolls>
+    When Card is "Sea Battle" with value <value> and bonus <bonus>
+    Then scores <score> with SeaBattle Points
+    Examples:
+      | rolls                                                    |value| bonus |score  |
+      | "Monkey,Monkey,Monkey,Sword,Sword,Coin,Parrot,Parrot"    |  2  |   300 |  500  |
+      | "Monkey,Monkey,Monkey,Sword,Sword,Sword,Sword,Skull"     |  3  |   500 |  800  |
+      | "Monkey,Monkey,Monkey,Sword,Sword,Sword,Sword,Skull"     |  4  |  1000 |  1300 |
+
+
+
