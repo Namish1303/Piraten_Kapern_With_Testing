@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Part1StepDefs {
+public class Part1_2StepDefs {
     Game g =  new Game();
     Dice[] d = new Dice[8];
     Card c;
