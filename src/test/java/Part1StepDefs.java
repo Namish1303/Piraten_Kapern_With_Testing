@@ -79,4 +79,5 @@ public class Part1StepDefs {
     public void scoresWithSeaBattlePoints(int arg0) {
         Assertions.assertEquals(arg0,g.SeaBattlePts(d,c));
     }
+
 }
