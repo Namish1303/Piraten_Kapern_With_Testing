@@ -28,3 +28,14 @@ Feature: Testing single player scoring
       Examples:
         | rolls                                                    | card          | value| bonus |score  |
         | "Skull,Skull,Skull,Sword,Sword,Sword,Sword,Sword"        | "Coin"        |  0   |   0   |  0    |
+
+
+    @DRPD
+    Scenario Outline: Player re-rolls once and dies
+      Given player rolls <rolls>
+      When Card is <card> with value <value> and bonus <bonus>
+      Then player re-rolls dices <number>
+      And dies and scores <score>
+      Examples:
+        | rolls                                                    | card          | value| bonus |score  | number    |
+        | "Monkey,Monkey,Parrot,Parrot,Diamond,Diamond,Coin,Coin"  | "Captain"     |  0   |   0   |  800  | "1,2,3,4" |
