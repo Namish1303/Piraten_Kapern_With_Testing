@@ -46,11 +46,27 @@ public class Part1StepDefs {
 
     @Then("player re-rolls dices {string} and gets {string}")
     public void playerReRollsDicesNumber(String arg0, String arg1) {
+        List<String> pos = new ArrayList<>(Arrays.asList(arg0.split(",")));
+        int[] pos2 = new int[pos.size()];
+        for(int i=0;i<pos.size();i++)
+        {
+            pos2[i] = Integer.parseInt(pos.get(i));
+        }
+
+        g.shuffleDice(d,pos2);
+
+        List<String> rolls = new ArrayList<>(Arrays.asList(arg1.split(",")));
+        for(int i=0; i<8;i++)
+        {
+            //System.out.println(d[i].reveal());
+            d[i] = new Dice(rolls.get(i));
+        }
 
     }
 
     @And("dies and scores {int}")
     public void diesAndScoresScore(int arg0) {
-
+            Assertions.assertTrue(g.endTurn(d,c));
+            Assertions.assertEquals(arg0,0);
     }
 }
