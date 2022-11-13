@@ -181,7 +181,7 @@ public class Game implements Serializable {
     {
 
         int count=0;
-        if(c.reveal() == "Skulls")
+        if(c.reveal().equals("Skulls"))
         {
             count = c.getNumber();
         }
@@ -215,11 +215,11 @@ public class Game implements Serializable {
         temp = DiceToCollection(d);
         tempPts = temp.get("Skull") * 100;
 
-        if(c.reveal() == "Skulls")
+        if(c.reveal().equals("Skulls"))
         {
             tempPts += c.getNumber() * 100;
         }
-        else if(c.reveal() == "Captain")
+        else if(c.reveal().equals("Captain"))
         {
             tempPts *= 2;
         }
