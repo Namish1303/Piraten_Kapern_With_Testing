@@ -57,3 +57,12 @@ Feature: Testing single player scoring
       | "Monkey,Monkey,Skull,Skull,Sword,Sword,Diamond,Parrot"   | "Coin"        |  0   |   0   | 500   | "1,2"     | "Diamond,Diamond,Skull,Skull,Sword,Sword,Diamond,Parrot" |
       | "Skull,Parrot,Monkey,Coin,Coin,Sword,Sword,Sword"        | "Coin"        |  0   |   0   | 600   | "6,7,8"   | "Skull,Parrot,Monkey,Coin,Coin,Coin,Monkey,Parrot"       |
       | "Skull,Parrot,Monkey,Coin,Coin,Sword,Sword,Sword"        | "Diamond"     |  0   |   0   | 500   | "6,7,8"   | "Skull,Parrot,Monkey,Coin,Coin,Coin,Monkey,Parrot"       |
+
+
+    @TRPD
+    Scenario: Player re-rolls twice and dies
+      Given player rolls "Skull,Parrot,Parrot,Parrot,Parrot,Sword,Sword,Sword"
+      When Card is "Coin" with value 0 and bonus 0
+      Then player re-rolls dices "6,7,8" and gets "Skull,Parrot,Parrot,Parrot,Parrot,Skull,Monkey,Monkey"
+      And player re-rolls dices "7,8" and gets "Skull,Parrot,Parrot,Parrot,Parrot,Skull,Skull,Monkey"
+      And dies and scores 0
