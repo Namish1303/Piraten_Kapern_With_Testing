@@ -66,3 +66,16 @@ Feature: Testing single player scoring
       Then player re-rolls dices "6,7,8" and gets "Skull,Parrot,Parrot,Parrot,Parrot,Skull,Monkey,Monkey"
       And player re-rolls dices "7,8" and gets "Skull,Parrot,Parrot,Parrot,Parrot,Skull,Skull,Monkey"
       And dies and scores 0
+
+
+    @TRPL
+    Scenario Outline: Player re-rolls twice and scores
+      Given player rolls <rolls>
+      When Card is "Coin" with value 0 and bonus 0
+      Then player re-rolls dices <number> and gets <reroll>
+      And player re-rolls dices <number2> and gets <reroll2>
+      And scores <score>
+      Examples:
+        | rolls                                                 |score  | number    | reroll                                             | number2 | reroll2                                           |
+        | "Skull,Parrot,Parrot,Sword,Sword,Sword,Coin,Coin"     | 4800  | "2,3"     | "Skull,Coin,Coin,Sword,Sword,Sword,Coin,Coin"      |  "4,5,6"| "Skull,Coin,Coin,Coin,Coin,Coin,Coin,Coin"        |
+        | "Skull,Parrot,Parrot,Sword,Sword,Sword,Monkey,Monkey" | 600   | "7,8"     | "Skull,Parrot,Parrot,Sword,Sword,Sword,Skull,Sword"|  "2,3"  | "Skull,Sword,Monkey,Sword,Sword,Sword,Skull,Sword"|
