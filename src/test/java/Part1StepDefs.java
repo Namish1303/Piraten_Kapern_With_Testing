@@ -52,7 +52,7 @@ public class Part1StepDefs {
         {
             pos2[i] = Integer.parseInt(pos.get(i));
         }
-
+        Assertions.assertTrue(g.isMoveValid(d,pos2,c) ==1 || g.isMoveValid(d,pos2,c) == 2);
         g.shuffleDice(d,pos2);
 
         List<String> rolls = new ArrayList<>(Arrays.asList(arg1.split(",")));
