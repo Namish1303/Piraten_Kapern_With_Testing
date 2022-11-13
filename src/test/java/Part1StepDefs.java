@@ -80,4 +80,8 @@ public class Part1StepDefs {
         Assertions.assertEquals(arg0,g.SeaBattlePts(d,c));
     }
 
+    @Then("Player dies and gets a deduction of {int}")
+    public void playerDiesAndGetsADeductionOfScore(int argo0) {
+        Assertions.assertEquals(argo0,g.SeaBattlePts(d,c));
+    }
 }
