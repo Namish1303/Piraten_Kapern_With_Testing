@@ -44,7 +44,11 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     When Card is <card> with value <value> and bonus <bonus>
     Then Player scores <score>
     Examples:
-      | rolls                                                    | card       | value| bonus |score  |
-      | "Monkey,Monkey,Monkey,Sword,Sword,Sword,Diamond,Parrot"  | "Coin"     |  0   |   0   |  400  |
-      | "Monkey,Monkey,Monkey,Sword,Sword,Sword,Coin,Coin"       | "Captain"  |  0   |   0   |  1800 |
-      | "Monkey,Monkey,Monkey,Sword,Sword,Sword,Sword,Diamond"   | "Coin"     |  0   |   0   |  1000 |
+      | rolls                                                    | card             | value| bonus |score  |
+      | "Monkey,Monkey,Monkey,Sword,Sword,Sword,Diamond,Parrot"  | "Coin"           |  0   |   0   |  400  |
+      | "Monkey,Monkey,Monkey,Sword,Sword,Sword,Coin,Coin"       | "Captain"        |  0   |   0   |  1800 |
+      | "Monkey,Monkey,Monkey,Sword,Sword,Sword,Sword,Diamond"   | "Coin"           |  0   |   0   |  1000 |
+      | "Monkey,Monkey,Parrot,Coin,Coin,Diamond,Diamond,Diamond" | "Monkey Business"|  0   |   0   |  1200 |
+
+
+
