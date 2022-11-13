@@ -276,20 +276,20 @@ public class Game implements Serializable {
     public boolean endTurn(Dice[] D, Card c)
     {
         int count =0;
-        if(c.reveal() == "Skulls")
+        if(c.reveal().equals("Skulls"))
         {
             count = c.number;
         }
         for(int i =0; i< 8;i++)
         {
-            if(D[i].reveal() == "Skull")
+            if(D[i].reveal().equals("Skull"))
             {
                 count +=1;
             }
         }
 
         if(count == 3){
-            if(c.reveal() == "Sorceress")
+            if(c.reveal().equals("Sorceress"))
             {
                 return false;
             }
