@@ -40,3 +40,20 @@ Feature: Testing single player scoring
         | rolls                                                    | card          | value| bonus |score  | number    | reroll                                                   |
         | "Skull,Parrot,Parrot,Parrot,Parrot,Sword,Sword,Sword"    | "Coin"        |  0   |   0   | 0     | "6,7,8"   | "Skull,Parrot,Parrot,Parrot,Parrot,Sword,Skull,Skull"    |
         | "Skull,Parrot,Parrot,Parrot,Parrot,Skull,Sword,Sword"    | "Coin"        |  0   |   0   | 0     | "7,8"     | "Skull,Parrot,Parrot,Parrot,Parrot,Skull,Skull,Sword"    |
+
+  @DRPL
+  Scenario Outline: Player re-rolls once and scores
+    Given player rolls <rolls>
+    When Card is <card> with value <value> and bonus <bonus>
+    Then player re-rolls dices <number> and gets <reroll>
+    And scores <score>
+    Examples:
+      | rolls                                                    | card          | value| bonus |score  | number    | reroll                                                   |
+      | "Monkey,Monkey,Skull,Skull,Sword,Sword,Parrot,Parrot"    | "Coin"        |  0   |   0   | 300   | "7,8"     | "Monkey,Monkey,Skull,Skull,Sword,Sword,Sword,Monkey"     |
+      | "Skull,Parrot,Parrot,Coin,Coin,Sword,Sword,Sword"        | "Coin"        |  0   |   0   | 800   | "2,3"     | "Skull,Coin,Sword,Coin,Coin,Sword,Sword,Sword"           |
+      | "Skull,Parrot,Parrot,Coin,Coin,Sword,Sword,Sword"        | "Captain"     |  0   |   0   | 1200  | "2,3"     | "Skull,Coin,Sword,Coin,Coin,Sword,Sword,Sword"           |
+      | "Monkey,Monkey,Monkey,Monkey,Monkey,Monkey,Sword,Sword"  | "Coin"        |  0   |   0   | 4600  | "7,8"     | "Monkey,Monkey,Monkey,Monkey,Monkey,Monkey,Monkey,Monkey"|
+      | "Monkey,Monkey,Skull,Skull,Sword,Sword,Parrot,Parrot"    | "Diamond"     |  0   |   0   | 400   | "7,8"     | "Monkey,Monkey,Skull,Skull,Sword,Sword,Diamond,Diamond"  |
+      | "Monkey,Monkey,Skull,Skull,Sword,Sword,Diamond,Parrot"   | "Coin"        |  0   |   0   | 500   | "1,2"     | "Diamond,Diamond,Skull,Skull,Sword,Sword,Parrot,Parrot"  |
+      | "Skull,Parrot,Monkey,Coin,Coin,Sword,Sword,Sword"        | "Coin"        |  0   |   0   | 600   | "6,7,8"   | "Skull,Parrot,Monkey,Coin,Coin,Coin,Monkey,Parrot"       |
+      | "Skull,Parrot,Monkey,Coin,Coin,Sword,Sword,Sword"        | "Diamond"     |  0   |   0   | 500   | "6,7,8"   | "Skull,Parrot,Monkey,Coin,Coin,Coin,Monkey,Parrot"       |
