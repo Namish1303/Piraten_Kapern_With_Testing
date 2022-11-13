@@ -54,6 +54,6 @@ Feature: Testing single player scoring
       | "Skull,Parrot,Parrot,Coin,Coin,Sword,Sword,Sword"        | "Captain"     |  0   |   0   | 1200  | "2,3"     | "Skull,Coin,Sword,Coin,Coin,Sword,Sword,Sword"           |
       | "Monkey,Monkey,Monkey,Monkey,Monkey,Monkey,Sword,Sword"  | "Coin"        |  0   |   0   | 4600  | "7,8"     | "Monkey,Monkey,Monkey,Monkey,Monkey,Monkey,Monkey,Monkey"|
       | "Monkey,Monkey,Skull,Skull,Sword,Sword,Parrot,Parrot"    | "Diamond"     |  0   |   0   | 400   | "7,8"     | "Monkey,Monkey,Skull,Skull,Sword,Sword,Diamond,Diamond"  |
-      | "Monkey,Monkey,Skull,Skull,Sword,Sword,Diamond,Parrot"   | "Coin"        |  0   |   0   | 500   | "1,2"     | "Diamond,Diamond,Skull,Skull,Sword,Sword,Parrot,Parrot"  |
+      | "Monkey,Monkey,Skull,Skull,Sword,Sword,Diamond,Parrot"   | "Coin"        |  0   |   0   | 500   | "1,2"     | "Diamond,Diamond,Skull,Skull,Sword,Sword,Diamond,Parrot" |
       | "Skull,Parrot,Monkey,Coin,Coin,Sword,Sword,Sword"        | "Coin"        |  0   |   0   | 600   | "6,7,8"   | "Skull,Parrot,Monkey,Coin,Coin,Coin,Monkey,Parrot"       |
       | "Skull,Parrot,Monkey,Coin,Coin,Sword,Sword,Sword"        | "Diamond"     |  0   |   0   | 500   | "6,7,8"   | "Skull,Parrot,Monkey,Coin,Coin,Coin,Monkey,Parrot"       |

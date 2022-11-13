@@ -69,4 +69,9 @@ public class Part1StepDefs {
             Assertions.assertTrue(g.endTurn(d,c));
             Assertions.assertEquals(arg0,0);
     }
+
+    @And("scores {int}")
+    public void scoresScore(int arg0) {
+        Assertions.assertEquals(arg0,g.regularPts(d,c));
+    }
 }
