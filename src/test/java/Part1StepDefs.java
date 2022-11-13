@@ -44,11 +44,13 @@ public class Part1StepDefs {
         Assertions.assertEquals(arg0,0);
     }
 
-    @Then("player re-rolls dices {string}")
-    public void playerReRollsDicesNumber(String arg0) {
+    @Then("player re-rolls dices {string} and gets {string}")
+    public void playerReRollsDicesNumber(String arg0, String arg1) {
+
     }
 
     @And("dies and scores {int}")
     public void diesAndScoresScore(int arg0) {
+
     }
 }

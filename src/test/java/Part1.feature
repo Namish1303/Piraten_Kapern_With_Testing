@@ -34,8 +34,9 @@ Feature: Testing single player scoring
     Scenario Outline: Player re-rolls once and dies
       Given player rolls <rolls>
       When Card is <card> with value <value> and bonus <bonus>
-      Then player re-rolls dices <number>
+      Then player re-rolls dices <number> and gets <reroll>
       And dies and scores <score>
       Examples:
-        | rolls                                                    | card          | value| bonus |score  | number    |
-        | "Monkey,Monkey,Parrot,Parrot,Diamond,Diamond,Coin,Coin"  | "Captain"     |  0   |   0   |  800  | "1,2,3,4" |
+        | rolls                                                    | card          | value| bonus |score  | number    | reroll                                                   |
+        | "Skull,Parrot,Parrot,Parrot,Parrot,Sword,Sword,Sword"    | "Coin"        |  0   |   0   | 0     | "6,7,8"   | "Skull,Parrot,Parrot,Parrot,Parrot,Sword,Skull,Skull"    |
+        | "Skull,Parrot,Parrot,Parrot,Parrot,Skull,Sword,Sword"    | "Coin"        |  0   |   0   | 0     | "7,8"     | "Skull,Parrot,Parrot,Parrot,Parrot,Skull,Skull,Sword"    |
