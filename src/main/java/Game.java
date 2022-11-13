@@ -147,14 +147,14 @@ public class Game implements Serializable {
             pts += collectionPts(entry.getValue());
             if(cardName.equals("Sea Battle"))
             {
-                if(collectionPts(entry.getValue())==0 && (entry.getKey()!="Coin") && (entry.getKey()!="Diamond") && (entry.getKey()!="Sword"))
+                if(collectionPts(entry.getValue())==0 && (!entry.getKey().equals("Coin")) && (!entry.getKey().equals("Diamond")) && (!entry.getKey().equals("Sword")))
                 {
                     fullChest=false;
 
                 }
             }
             else {
-                if (collectionPts(entry.getValue()) == 0 && (entry.getKey()!= "Coin") && (entry.getKey() != "Diamond")) {
+                if (collectionPts(entry.getValue()) == 0 && (!entry.getKey().equals("Coin")) && (!entry.getKey().equals("Diamond")) {
                     fullChest = false;
 
                 }
