@@ -154,7 +154,7 @@ public class Game implements Serializable {
                 }
             }
             else {
-                if (collectionPts(entry.getValue()) == 0 && (!entry.getKey().equals("Coin")) && (!entry.getKey().equals("Diamond")) {
+                if (collectionPts(entry.getValue()) == 0 && (!entry.getKey().equals("Coin")) && (!entry.getKey().equals("Diamond"))) {
                     fullChest = false;
 
                 }
