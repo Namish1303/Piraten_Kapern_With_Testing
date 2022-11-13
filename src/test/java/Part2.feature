@@ -122,3 +122,16 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
       | rolls                                                    |value| bonus |
       | "Skull,Sword,Sword,Sword,Sword,Sword,Sword,Sword"        |  2  |   0   |
       | "Skull,Skull,Sword,Sword,Sword,Sword,Sword,Sword"        |  1  |   0   |
+
+
+  @Skull21
+  Scenario Outline: Player goes to IsleOfDead in first roll and deducts other players points
+    Given player rolls <rolls>
+    When Card is <card> with value <value> and bonus <bonus>
+    Then player goes to Isle of Dead
+    And player re-rolls dices <number> and gets <reroll>
+    And incurs a deduction of <score> for other players
+    Examples:
+      | rolls                                                |value| bonus | score | number     | reroll                                         | card     |
+      | "Skull,Skull,Skull,Skull,Skull,Monkey,Monkey,Monkey" |  0  |   0   |  -1400| "6,7,8"    |"Skull,Skull,Skull,Skull,Skull,Skull,Skull,Coin"|"Captain" |
+      | "Skull,Skull,Skull,Sword,Sword,Sword,Sword,Sword"    |  2  |   0   |  -500 | "4,5,6,7,8"|"Skull,Skull,Skull,Coin,Coin,Coin,Coin,Coin"    |"Skulls"  |
