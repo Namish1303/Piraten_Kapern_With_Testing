@@ -23,6 +23,8 @@ public class Part1StepDefs {
             {
                 d[i] = new Dice(rolls.get(i));
             }
+
+            c = g.getGameCard();
     }
 
     @When("Card is {string} with value {int} and bonus {int}")

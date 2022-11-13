@@ -1,6 +1,6 @@
 Feature: Testing single player scoring
 
-  @SingleRollsWithoutDeath
+  @SRPL
   Scenario Outline: Single roll outcomes (no death)
     Given player rolls <rolls>
     When Card is <card> with value <value> and bonus <bonus>
@@ -20,10 +20,11 @@ Feature: Testing single player scoring
       | "Monkey,Monkey,Monkey,Monkey,Coin,Coin,Skull,Skull"      | "Coin"        |  0   |   0   |  600  |
 
 
+    @SRPD
     Scenario Outline: Player rolls and dies
       Given player rolls <rolls>
       When Card is <card> with value <value> and bonus <bonus>
       Then Player dies and scores <score>
       Examples:
         | rolls                                                    | card          | value| bonus |score  |
-        | "Monkey,Monkey,Parrot,Parrot,Diamond,Diamond,Coin,Coin"  | "Captain"     |  0   |   0   |  800  |
+        | "Skull,Skull,Skull,Sword,Sword,Sword,Sword,Sword"        | "Coin"        |  0   |   0   |  0    |
