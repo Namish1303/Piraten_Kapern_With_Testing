@@ -87,7 +87,7 @@ public class Game implements Serializable {
         for(int i = 0; i<D.length; i++)
         {
             //System.out.println(D[i].reveal());
-            if(D[i].reveal() == "Coin" || D[i].reveal() == "Diamond")
+            if(D[i].reveal().equals("Coin") || D[i].reveal().equals("Diamond"))
             {
                 pts += 100;
             }
@@ -104,7 +104,7 @@ public class Game implements Serializable {
 
         String cardName = C.reveal();
         //System.out.println("Card: " +cardName);
-        if(cardName == "Coin")
+        if(cardName.equals("Coin"))
         {
             pts +=100;
             if(occurence.containsKey("Coin"))
@@ -116,7 +116,7 @@ public class Game implements Serializable {
                 occurence.put("Coin",1);
             }
         }
-        else if(cardName == "Diamond")
+        else if(cardName.equals("Diamond"))
         {
             pts +=100;
             if(occurence.containsKey("Diamond"))
@@ -130,7 +130,7 @@ public class Game implements Serializable {
         }
 
         //Monkey Business card conditions
-        else if(cardName == "Monkey Business")
+        else if(cardName.equals("Monkey Business"))
         {
             if(occurence.containsKey("Monkey") && occurence.containsKey("Parrot"))
             {
@@ -145,7 +145,7 @@ public class Game implements Serializable {
         for(Map.Entry<String,Integer> entry: occurence.entrySet())
         {
             pts += collectionPts(entry.getValue());
-            if(cardName == "Sea Battle")
+            if(cardName.equals("Sea Battle"))
             {
                 if(collectionPts(entry.getValue())==0 && (entry.getKey()!="Coin") && (entry.getKey()!="Diamond") && (entry.getKey()!="Sword"))
                 {
@@ -167,7 +167,7 @@ public class Game implements Serializable {
         }
 
         //doubling the score if the card is "Captain"
-        if(cardName == "Captain")
+        if(cardName.equals("Captain"))
         {
             pts *=2;
         }
