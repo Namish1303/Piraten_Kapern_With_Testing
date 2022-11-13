@@ -31,5 +31,6 @@ public class Part1StepDefs {
     @Then("Player scores {int}")
     public void playerScoresScore(int arg0) {
         Assertions.assertEquals(arg0,g.regularPts(d,c));
+
     }
 }
