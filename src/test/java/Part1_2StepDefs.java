@@ -84,4 +84,15 @@ public class Part1_2StepDefs {
     public void playerDiesAndGetsADeductionOfScore(int argo0) {
         Assertions.assertEquals(argo0,g.SeaBattlePts(d,c));
     }
+
+    @Then("player goes to Isle of Dead")
+    public void playerGoesToIsleOfDead() {
+        Assertions.assertTrue(g.isIsleOfDead(d,1,c));
+    }
+
+
+    @And("incurs a deduction of {int} for other players")
+    public void incursADeductionOfScoreForOtherPlayers(int arg0) {
+        Assertions.assertEquals(arg0,g.IslePts(d,c));
+    }
 }
