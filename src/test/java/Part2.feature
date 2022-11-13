@@ -20,3 +20,11 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     Given player rolls "Monkey,Monkey,Monkey,Parrot,Parrot,Parrot,Skull,Coin"
     When Card is "Monkey Business" with value 0 and bonus 0
     Then Player scores 1100
+
+
+  @MonkeyBusiness2
+  Scenario: Player has monkey-business and re-rolls once and scores
+    Given player rolls "Monkey,Monkey,Sword,Sword,Parrot,Parrot,Coin,Coin"
+    When Card is "Monkey Business" with value 0 and bonus 0
+    Then player re-rolls dices "3,4" and gets "Monkey,Monkey,Monkey,Parrot,Parrot,Parrot,Coin,Coin"
+    And scores 1700
