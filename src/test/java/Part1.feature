@@ -23,8 +23,7 @@ Feature: Testing single player scoring
     Scenario Outline: Player rolls and dies
       Given player rolls <rolls>
       When Card is <card> with value <value> and bonus <bonus>
-      Then Player scores <score>
-      And dies
+      Then Player dies and scores <score>
       Examples:
         | rolls                                                    | card          | value| bonus |score  |
         | "Monkey,Monkey,Parrot,Parrot,Diamond,Diamond,Coin,Coin"  | "Captain"     |  0   |   0   |  800  |

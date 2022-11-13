@@ -1,4 +1,6 @@
 
+import io.cucumber.java.bs.A;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -32,5 +34,11 @@ public class Part1StepDefs {
     public void playerScoresScore(int arg0) {
         Assertions.assertEquals(arg0,g.regularPts(d,c));
 
+    }
+
+    @Then("Player dies and scores {int}")
+    public void playerDiesAndScoresScore(int arg0) {
+        Assertions.assertTrue(g.endTurn(d,c));
+        Assertions.assertEquals(arg0,0);
     }
 }
