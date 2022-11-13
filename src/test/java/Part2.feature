@@ -110,3 +110,15 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     Then player re-rolls dices "7,8" and gets "Monkey,Monkey,Monkey,Diamond,Sword,Skull,Sword,Sword"
     And player re-rolls dices "1,2,3" and gets "Sword,Parrot,Parrot,Diamond,Sword,Skull,Sword,Sword"
     And scores 1300 with SeaBattle Points
+    
+    
+    
+  @Skull10
+  Scenario Outline: Player rolls once and dies
+    Given player rolls <rolls>
+    When Card is "Skull" with value <value> and bonus <bonus>
+    Then dies and scores 0
+    Examples:
+      | rolls                                                    |value| bonus |
+      | "Skull,Sword,Sword,Sword,Sword,Sword,Sword,Sword"        |  2  |   0   |
+      | "Skull,Skull,Sword,Sword,Sword,Sword,Sword,Sword"        |  1  |   0   |
