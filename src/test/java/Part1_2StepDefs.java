@@ -129,13 +129,19 @@ public class Part1_2StepDefs {
 
         for(int i=0;i<chest.size();i++)
         {
-            d[chest.get(i)].InTheChest();
+            d[chest.get(i)-1].InTheChest();
         }
         Assertions.assertEquals(arg0,g.ChestPts(d,c));
     }
 
     @And("Player die and scores {int} including Chest")
     public void playerDieAndScoresIncludingChest(int arg0) {
+        Assertions.assertTrue(g.endTurn(d,c));
+        for(int i=0;i<chest.size();i++)
+        {
+            d[chest.get(i)-1].InTheChest();
+        }
+        Assertions.assertEquals(arg0,g.ChestPts(d,c));
 
     }
 }
