@@ -53,6 +53,8 @@ public class Part1_2StepDefs {
         {
             pos2[i] = Integer.parseInt(pos.get(i));
         }
+
+        //g.isMoveValid(d,pos2,c);
         Assertions.assertTrue(g.isMoveValid(d,pos2,c) ==1 || g.isMoveValid(d,pos2,c) == 2);
         g.shuffleDice(d,pos2);
 

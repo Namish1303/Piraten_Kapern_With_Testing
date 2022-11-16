@@ -242,12 +242,16 @@ public class Game implements Serializable {
 
     public int isMoveValid(Dice[] d, int[] pos, Card c)
     {
+
         if(pos.length == 1)
         {
-            if(d[pos[0]].reveal().equals("Skull"))
+            if(d[pos[0]-1].reveal().equals("Skull"))
             {
                 if(c.reveal().equals("Sorceress"))
                 {
+                    //System.out.println(d[pos[0]].reveal());
+                   // System.out.println(pos[0]);
+                    //System.out.println(c.reveal());
                     return 2;
                 }
                 else
@@ -255,6 +259,9 @@ public class Game implements Serializable {
                     return 3;
                 }
             }
+            //System.out.println("Reached here somehow");
+           // System.out.println(d[pos[0]].reveal());
+           // System.out.println(pos[0]);
             return 3;
         }
         int count = 0;
@@ -278,7 +285,7 @@ public class Game implements Serializable {
         {
             return 0;
         }
-        System.out.println(count + c.reveal());
+        //System.out.println(count + c.reveal());
         return  0;
     }
 
