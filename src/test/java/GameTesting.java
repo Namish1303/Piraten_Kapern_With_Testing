@@ -218,7 +218,15 @@ public class GameTesting {
         System.out.println("I can re-roll any non-skulls with any card");
         Assertions.assertEquals(1,g.isMoveValid(dice,pos,c));
 
+        System.out.println("Can roll 1 dice with sorceress");
+        c = new Card("Sorceress",1,0);
+        int[] pos3 = new int[1];
+        pos3[0] = 1;
+        Assertions.assertEquals(2,g.isMoveValid(dice,pos3,c));
 
+        System.out.println("Cannot roll 1 dice without sorceress");
+        c= new Card("Coin",1,0);
+        Assertions.assertEquals(0,g.isMoveValid(dice,pos3,c));
     }
 
 
