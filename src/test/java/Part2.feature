@@ -141,7 +141,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
   @TresureChest
   Scenario: row 87
     Given player rolls "Parrot,Parrot,Parrot,Sword,Sword,Diamond,Diamond,Coin"
-    When Card is "Coin" with value 0 and bonus 0
+    When Card is "Chest" with value 1 and bonus 0
     Then player puts "6,7,8" in Chest
     And player re-rolls dices "4,5" and gets "Parrot,Parrot,Parrot,Parrot,Parrot,Diamond,Diamond,Coin"
     Then player puts "1,2,3,4" in Chest
