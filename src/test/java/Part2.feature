@@ -148,4 +148,4 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     And takes out "6,7,8" from Chest
     Then player re-rolls dices "6,7,8" and gets "Parrot,Parrot,Parrot,Parrot,Parrot,Skull,Coin,Parrot"
     And Player scores 1100 including Chest
-    
+

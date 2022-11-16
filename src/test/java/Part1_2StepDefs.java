@@ -14,6 +14,7 @@ public class Part1_2StepDefs {
     Game g =  new Game();
     Dice[] d = new Dice[8];
     Card c;
+    List<Integer> chest = new ArrayList<>();
     @Given("player rolls {string}")
     public void playerRollsRolls(String arg0) {
             d = g.getGameDices();
@@ -94,5 +95,42 @@ public class Part1_2StepDefs {
     @And("incurs a deduction of {int} for other players")
     public void incursADeductionOfScoreForOtherPlayers(int arg0) {
         Assertions.assertEquals(arg0,g.IslePts(d,c));
+    }
+
+    @Then("player puts {string} in Chest")
+    public void playerPutsInChest(String arg0) {
+        List<String> pos = new ArrayList<>(Arrays.asList(arg0.split(",")));
+        int[] pos2 = new int[pos.size()];
+        for(int i=0;i<pos.size();i++)
+        {
+            pos2[i] = Integer.parseInt(pos.get(i));
+            chest.add(pos2[i]);
+        }
+
+        g.DiceInChest(d,pos2);
+
+    }
+
+    @And("takes out {string} from Chest")
+    public void takesOutFromChest(String arg0) {
+        List<String> pos = new ArrayList<>(Arrays.asList(arg0.split(",")));
+        int[] pos2 = new int[pos.size()];
+        for(int i=0;i<pos.size();i++)
+        {
+            pos2[i] = Integer.parseInt(pos.get(i));
+            chest.remove(Integer.valueOf(pos2[i]));
+        }
+
+        g.DiceOutChest(d,pos2);
+    }
+
+    @And("Player scores {int} including Chest")
+    public void playerScoresIncludingChest(int arg0) {
+
+        for(int i=0;i<chest.size();i++)
+        {
+            d[chest.get(i)].InTheChest();
+        }
+        Assertions.assertEquals(arg0,g.ChestPts(d,c));
     }
 }
