@@ -55,4 +55,67 @@ public class Part3StepDefs {
         Assertions.assertEquals(arg0,tgs.returnWinner());
 
     }
+
+    @Then("player {int} rerolls {string} and gets {string}")
+    public void playerRerollsAndGets(int arg0, String arg1, String arg2) {
+        List<String> pos = new ArrayList<>(Arrays.asList(arg1.split(",")));
+        int[] pos2 = new int[pos.size()];
+        for(int i=0;i<pos.size();i++)
+        {
+            pos2[i] = Integer.parseInt(pos.get(i));
+        }
+
+        d = g.shuffleDice(d,pos2);
+
+        List<String> rolls = new ArrayList<>(Arrays.asList(arg2.split(",")));
+        for(int i=0; i<8;i++)
+        {
+            //System.out.println(d[i].reveal());
+            d[i] = new Dice(rolls.get(i));
+        }
+
+
+    }
+
+    @And("player {int} rerolls {string} and gets {string} and stops")
+    public void playerRerollAndGets(int arg0, String arg1, String arg2) {
+
+        List<String> pos = new ArrayList<>(Arrays.asList(arg1.split(",")));
+        int[] pos2 = new int[pos.size()];
+        for(int i=0;i<pos.size();i++)
+        {
+            pos2[i] = Integer.parseInt(pos.get(i));
+        }
+
+        d = g.shuffleDice(d,pos2);
+
+        List<String> rolls = new ArrayList<>(Arrays.asList(arg2.split(",")));
+        for(int i=0; i<8;i++)
+        {
+            //System.out.println(d[i].reveal());
+            d[i] = new Dice(rolls.get(i));
+        }
+
+        tgs.playTurn(arg0-1,d,c);
+        //System.out.println(tgs.scores[arg0-1]);
+    }
+
+    @Then("game is over and player {int} scores {int} , player {int} scores {int} and player {int} scores {int}")
+    public void gameIsOverAndPlayerScoresPlayerScoresAndPlayerScores(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5) {
+
+        Assertions.assertEquals(arg1,tgs.scores[arg0-1]);
+        Assertions.assertEquals(arg3,tgs.scores[arg2-1]);
+        Assertions.assertEquals(arg5,tgs.scores[arg4-1]);
+    }
+
+    @And("player {int} rolls {string}")
+    public void playerRolls2(int arg0, String arg1) {
+        d = g.getGameDices();
+        List<String> rolls = new ArrayList<>(Arrays.asList(arg1.split(",")));
+
+        for(int i=0; i<8;i++)
+        {
+            d[i] = new Dice(rolls.get(i));
+        }
+    }
 }
