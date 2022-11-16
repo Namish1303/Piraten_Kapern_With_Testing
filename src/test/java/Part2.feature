@@ -135,3 +135,5 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
       | rolls                                                |value| bonus | score | number     | reroll                                         | card     |
       | "Skull,Skull,Skull,Skull,Skull,Monkey,Monkey,Monkey" |  0  |   0   |  1400 | "6,7,8"    |"Skull,Skull,Skull,Skull,Skull,Skull,Skull,Coin"|"Captain" |
       | "Skull,Skull,Skull,Sword,Sword,Sword,Sword,Sword"    |  2  |   0   |  500  | "4,5,6,7,8"|"Skull,Skull,Skull,Coin,Coin,Coin,Coin,Coin"    |"Skulls"  |
+
+

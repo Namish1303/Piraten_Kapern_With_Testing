@@ -7,7 +7,7 @@ public class testRunner {
     public static void main(String[] args) {
 
         int count=0;
-        Result result = JUnitCore.runClasses(testSuite.class);
+        Result result = JUnitCore.runClasses(cucumberSuite.class);
 
         for (Failure failure : result.getFailures()) {
             System.out.println(failure.toString());
