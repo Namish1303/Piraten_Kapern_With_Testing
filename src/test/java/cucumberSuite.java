@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/java/Part2.feature","src/test/java/Part1.feature"},
+        features = {"src/test/java/Part2.feature","src/test/java/Part1.feature","src/test/java/Part3.feature"},
         plugin = {"pretty"}
 )
 
