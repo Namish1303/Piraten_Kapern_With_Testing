@@ -242,16 +242,31 @@ public class Game implements Serializable {
 
     public int isMoveValid(Dice[] d, int[] pos, Card c)
     {
+        if(pos.length == 1)
+        {
+            if(d[pos[0]].reveal().equals("Skull"))
+            {
+                if(c.reveal().equals("Sorceress"))
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 3;
+                }
+            }
+            return 3;
+        }
         int count = 0;
         for(int i=0;i<pos.length;i++)
         {
-            if(d[pos[i]-1].reveal() == "Skull")
+            if(d[pos[i]-1].reveal().equals("Skull"))
             {
                 count+=1;
             }
         }
 
-        if(count ==1 && c.reveal()=="Sorceress")
+        if(count ==1 && c.reveal().equals("Sorceress"))
         {
             return 2;
         }
@@ -259,7 +274,7 @@ public class Game implements Serializable {
         {
             return 1;
         }
-        else if (count >=1 && (c == null || c.reveal() != "Sorceress"))
+        else if (count >=1 && (c == null || !c.reveal().equals("Sorceress")))
         {
             return 0;
         }

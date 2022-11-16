@@ -226,7 +226,7 @@ public class GameTesting {
 
         System.out.println("Cannot roll 1 dice without sorceress");
         c= new Card("Coin",1,0);
-        Assertions.assertEquals(0,g.isMoveValid(dice,pos3,c));
+        Assertions.assertEquals(3,g.isMoveValid(dice,pos3,c));
     }
 
 
