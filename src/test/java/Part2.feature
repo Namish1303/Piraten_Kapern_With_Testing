@@ -1,7 +1,7 @@
 Feature: Miscellaneous Fortune Cards and Full Chest bonus
 
   @Sorceress
-  Scenario Outline: Player has sorceress card and re-roll twice
+  Scenario Outline: row 77,78,79
     Given player rolls <rolls>
     When Card is "Sorceress" with value 0 and bonus 0
     Then player re-rolls dices <number> and gets <reroll>
@@ -16,14 +16,14 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
 
 
   @MonkeyBusiness1
-  Scenario: Player has monkey-business and rolls once and scores
+  Scenario: row 82
     Given player rolls "Monkey,Monkey,Monkey,Parrot,Parrot,Parrot,Skull,Coin"
     When Card is "Monkey Business" with value 0 and bonus 0
     Then Player scores 1100
 
 
   @MonkeyBusiness2
-  Scenario: Player has monkey-business and re-rolls once and scores
+  Scenario: row 83
     Given player rolls "Monkey,Monkey,Sword,Sword,Parrot,Parrot,Coin,Coin"
     When Card is "Monkey Business" with value 0 and bonus 0
     Then player re-rolls dices "3,4" and gets "Monkey,Monkey,Monkey,Parrot,Parrot,Parrot,Coin,Coin"
@@ -31,7 +31,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
 
 
   @MonkeyBusiness3
-  Scenario: Player has monkey-business and rolls once and dies
+  Scenario: row 84
     Given player rolls "Skull,Skull,Skull,Parrot,Parrot,Monkey,Monkey,Monkey"
     When Card is "Monkey Business" with value 0 and bonus 0
     Then Player dies and scores 0
@@ -39,7 +39,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
 
 
   @FullChest1
-  Scenario Outline: Player rolls once and scores
+  Scenario Outline: row 97,98,99,103
     Given player rolls <rolls>
     When Card is <card> with value <value> and bonus <bonus>
     Then Player scores <score>
@@ -52,7 +52,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     
     
   @FullChest2
-  Scenario: Player has sea battle card and re-rolls once and scores
+  Scenario: row 100
     Given player rolls "Monkey,Monkey,Monkey,Monkey,Sword,Parrot,Parrot,Coin"
     When Card is "Sea Battle" with value 2 and bonus 300
     Then player re-rolls dices "6,7" and gets "Monkey,Monkey,Monkey,Monkey,Sword,Coin,Sword,Coin"
@@ -61,7 +61,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
 
 
   @SeaBattle11
-  Scenario Outline: Player has Sea Battle card and rolls once and scores
+  Scenario Outline: row 117,120,123
     Given player rolls <rolls>
     When Card is "Sea Battle" with value <value> and bonus <bonus>
     Then scores <score> with SeaBattle Points
@@ -73,7 +73,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
 
 
   @SeaBattle10
-  Scenario Outline: Player has Sea Battle card and rolls once and dies
+  Scenario Outline: row 114,116
     Given player rolls <rolls>
     When Card is "Sea Battle" with value <value> and bonus <bonus>
     Then Player dies and gets a deduction of <score>
@@ -84,7 +84,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
 
 
   @SeaBattle20
-  Scenario Outline: Player has Sea Battle card and re-rolls once and dies
+  Scenario Outline: row 115,121
     Given player rolls <rolls>
     When Card is "Sea Battle" with value <value> and bonus <bonus>
     Then player re-rolls dices <number> and gets <reroll>
@@ -96,7 +96,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
 
 
   @SeaBattle21
-  Scenario: Player has Sea Battle card and re-rolls once and scores
+  Scenario: row 119
     Given player rolls "Monkey,Monkey,Monkey,Monkey,Sword,Skull,Parrot,Parrot"
     When Card is "Sea Battle" with value 2 and bonus 300
     Then player re-rolls dices "7,8" and gets "Monkey,Monkey,Monkey,Monkey,Sword,Skull,Sword,Skull"
@@ -104,7 +104,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
 
 
   @SeaBattle31
-  Scenario: Player has Sea Battle card and re-rolls twice and scores
+  Scenario: row 126
     Given player rolls "Monkey,Monkey,Monkey,Diamond,Sword,Skull,Parrot,Parrot"
     When Card is "Sea Battle" with value 4 and bonus 1000
     Then player re-rolls dices "7,8" and gets "Monkey,Monkey,Monkey,Diamond,Sword,Skull,Sword,Sword"
@@ -114,7 +114,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     
     
   @Skull10
-  Scenario Outline: Player rolls once and dies
+  Scenario Outline: row 106,107
     Given player rolls <rolls>
     When Card is "Skulls" with value <value> and bonus <bonus>
     Then dies and scores 0
@@ -125,7 +125,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
 
 
   @Skull21
-  Scenario Outline: Player goes to IsleOfDead in first roll and deducts other players points
+  Scenario Outline: row 110,111
     Given player rolls <rolls>
     When Card is <card> with value <value> and bonus <bonus>
     Then player goes to Isle of Dead

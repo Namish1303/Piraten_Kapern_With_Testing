@@ -1,7 +1,7 @@
 Feature: Testing single player scoring
 
   @SRPL
-  Scenario Outline: Single roll outcomes (no death)
+  Scenario Outline: row 52,54,55,56,57,62,63,64,65,66,72
     Given player rolls <rolls>
     When Card is <card> with value <value> and bonus <bonus>
     Then Player scores <score>
@@ -21,7 +21,7 @@ Feature: Testing single player scoring
 
 
     @SRPD
-    Scenario Outline: Player rolls and dies
+    Scenario Outline: row 45
       Given player rolls <rolls>
       When Card is <card> with value <value> and bonus <bonus>
       Then Player dies and scores <score>
@@ -31,7 +31,7 @@ Feature: Testing single player scoring
 
 
     @DRPD
-    Scenario Outline: Player re-rolls once and dies
+    Scenario Outline: row 46,47
       Given player rolls <rolls>
       When Card is <card> with value <value> and bonus <bonus>
       Then player re-rolls dices <number> and gets <reroll>
@@ -42,7 +42,7 @@ Feature: Testing single player scoring
         | "Skull,Parrot,Parrot,Parrot,Parrot,Skull,Sword,Sword"    | "Coin"        |  0   |   0   | 0     | "7,8"     | "Skull,Parrot,Parrot,Parrot,Parrot,Skull,Skull,Sword"    |
 
   @DRPL
-  Scenario Outline: Player re-rolls once and scores
+  Scenario Outline: row 53,58,59,67,68,69,70,71
     Given player rolls <rolls>
     When Card is <card> with value <value> and bonus <bonus>
     Then player re-rolls dices <number> and gets <reroll>
@@ -60,7 +60,7 @@ Feature: Testing single player scoring
 
 
     @TRPD
-    Scenario: Player re-rolls twice and dies
+    Scenario: row 48
       Given player rolls "Skull,Parrot,Parrot,Parrot,Parrot,Sword,Sword,Sword"
       When Card is "Coin" with value 0 and bonus 0
       Then player re-rolls dices "6,7,8" and gets "Skull,Parrot,Parrot,Parrot,Parrot,Skull,Monkey,Monkey"
@@ -69,7 +69,7 @@ Feature: Testing single player scoring
 
 
     @TRPL
-    Scenario Outline: Player re-rolls twice and scores
+    Scenario Outline: row 51,61
       Given player rolls <rolls>
       When Card is "Coin" with value 0 and bonus 0
       Then player re-rolls dices <number> and gets <reroll>
