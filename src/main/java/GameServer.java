@@ -348,14 +348,18 @@ public class GameServer implements Serializable {
                             temp2[j] = Integer.parseInt(positions[j]);
                         }
                         if (game.isMoveValid(d, temp2, c) == 0) {
-                            temp = "\n\nCannot roll Skulls";
+                            temp = "\n\n Cannot roll Skulls";
                             continue;
                         } else if (game.isMoveValid(d, temp2, c) == 1) {
                             d = game.shuffleDice(d, temp2);
                             continue;
-                        } else {
+                        } else if(game.isMoveValid(d,temp2,c)==2){
                             d = game.shuffleDice(d, temp2);
                             c = new Card("NULL", 1, 0);
+                            continue;
+                        }
+                        else {
+                            temp = "\n\n Cannot roll 1 dice";
                             continue;
                         }
                         //System.out.println("Shuffling dices");
@@ -415,15 +419,19 @@ public class GameServer implements Serializable {
                         temp2[j] = Integer.parseInt(positions[j]);
                     }
                     if (game.isMoveValid(d, temp2, c) == 0) {
-                        temp = "Cannot roll Skulls";
+                        temp = "\n\n Cannot roll Skulls";
                         continue;
                     } else if (game.isMoveValid(d, temp2, c) == 1) {
                         d = game.shuffleDice(d, temp2);
                         continue;
-                    } else {
+                    } else if(game.isMoveValid(d,temp2,c)==2) {
                         d = game.shuffleDice(d, temp2);
                         c = null;
                         continue;
+                    }
+                    else
+                    {
+                        temp = "\n\n Cannot roll 1 dice";
                     }
                     //System.out.println("Shuffling dices");
 
@@ -489,19 +497,23 @@ public class GameServer implements Serializable {
                             temp2[j] = Integer.parseInt(positions[j]);
                         }
                         if (game.isMoveValid(d, temp2, c) == 0) {
-                            tempS = "Cannot roll Skulls";
+                            tempS = "\n\n Cannot roll Skulls";
                             continue;
                         } else if (game.isMoveValid(d, temp2, c) == 1) {
                             before = game.DiceToCollection(d);
                             d = game.shuffleDice(d, temp2);
                             after = game.DiceToCollection(d);
                             continue;
-                        } else {
+                        } else if (game.isMoveValid(d,temp2,c)==2){
                             before = game.DiceToCollection(d);
                             d = game.shuffleDice(d, temp2);
                             after = game.DiceToCollection(d);
                             c = null;
                             continue;
+                        }
+                        else
+                        {
+                            tempS = "\n\n Cannot roll 1 dice";
                         }
                     } else {
                         s.dOut.writeInt(200);
@@ -523,7 +535,7 @@ public class GameServer implements Serializable {
             if (playerNum == i) {
                 continue;
             } else {
-                addToSheet(0 - game.IslePts(d, c), i);
+                addToSheet(-game.IslePts(d, c), i);
             }
         }
 
@@ -566,15 +578,19 @@ public class GameServer implements Serializable {
                         temp2[j] = Integer.parseInt(positions[j]);
                     }
                     if (game.isMoveValid(d, temp2, c) == 0) {
-                        temp = "Cannot roll Skulls";
+                        temp = "\n\nCannot roll Skulls";
                         continue;
                     } else if (game.isMoveValid(d, temp2, c) == 1) {
                         d = game.shuffleDice(d, temp2);
                         continue;
-                    } else {
+                    } else if (game.isMoveValid(d,temp2,c)==2){
                         d = game.shuffleDice(d, temp2);
                         c = new Card("NULL", 1, 0);
                         continue;
+                    }
+                    else
+                    {
+                        temp = "\n\n Cannot roll 1 dice";
                     }
                     //System.out.println("Shuffling dices");
 
