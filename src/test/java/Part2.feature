@@ -136,7 +136,14 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
       | "Skull,Skull,Skull,Skull,Skull,Monkey,Monkey,Monkey" |  0  |   0   |  1400 | "6,7,8"    |"Skull,Skull,Skull,Skull,Skull,Skull,Skull,Coin"|"Captain" |
       | "Skull,Skull,Skull,Sword,Sword,Sword,Sword,Sword"    |  2  |   0   |  500  | "4,5,6,7,8"|"Skull,Skull,Skull,Coin,Coin,Coin,Coin,Coin"    |"Skulls"  |
 
-
+  @Skull30
+    Scenario: row 108
+    Given player rolls "Skull,Skull,Parrot,Monkey,Parrot,Monkey,Parrot,Monkey"
+    When Card is "Skulls" with value 2 and bonus 0
+    Then player re-rolls dices "3,5,7" and gets "Skull,Skull,Skull,Monkey,Skull,Monkey,Sword,Monkey"
+    And player re-rolls dices "4,6,7,8" and gets "Skull,Skull,Skull,Skull,Skull,Skull,Sword,Skull"
+    Then incurs a deduction of 900 for other players
+    And scores 0
 
   @TresureChest
   Scenario: row 87
@@ -149,7 +156,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     Then player re-rolls dices "6,7,8" and gets "Parrot,Parrot,Parrot,Parrot,Parrot,Skull,Coin,Parrot"
     And Player scores 1100 including Chest
 
-
+  @TresureChest2
   Scenario: row 92
     Given player rolls "Skull,Skull,Parrot,Parrot,Parrot,Coin,Coin,Coin"
     When Card is "Chest" with value 1 and bonus 0
