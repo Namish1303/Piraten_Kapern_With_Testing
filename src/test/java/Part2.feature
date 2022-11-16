@@ -137,3 +137,15 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
       | "Skull,Skull,Skull,Sword,Sword,Sword,Sword,Sword"    |  2  |   0   |  500  | "4,5,6,7,8"|"Skull,Skull,Skull,Coin,Coin,Coin,Coin,Coin"    |"Skulls"  |
 
 
+
+  @TresureChest
+  Scenario: row 87
+    Given player rolls "Parrot,Parrot,Parrot,Sword,Sword,Diamond,Diamond,Coin"
+    When Card is "Coin" with value 0 and bonus 0
+    Then player puts "6,7,8" in Chest
+    And player re-rolls dices "4,5" and gets "Parrot,Parrot,Parrot,Parrot,Parrot,Diamond,Diamond,Coin"
+    Then player puts "1,2,3,4" in Chest
+    And takes out "6,7,8" from Chest
+    Then player re-rolls dices "6,7,8" and gets "Parrot,Parrot,Parrot,Parrot,Parrot,Skull,Coin,Parrot"
+    And Player scores 1100 including Chest
+    
