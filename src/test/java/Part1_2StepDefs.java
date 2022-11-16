@@ -133,4 +133,9 @@ public class Part1_2StepDefs {
         }
         Assertions.assertEquals(arg0,g.ChestPts(d,c));
     }
+
+    @And("Player die and scores {int} including Chest")
+    public void playerDieAndScoresIncludingChest(int arg0) {
+
+    }
 }

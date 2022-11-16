@@ -149,3 +149,13 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     Then player re-rolls dices "6,7,8" and gets "Parrot,Parrot,Parrot,Parrot,Parrot,Skull,Coin,Parrot"
     And Player scores 1100 including Chest
 
+
+  Scenario: row 92
+    Given player rolls "Skull,Skull,Parrot,Parrot,Parrot,Coin,Coin,Coin"
+    When Card is "Chest" with value 1 and bonus 0
+    Then player puts "6,7,8" in Chest
+    And player re-rolls dices "3,4,5" and gets "Skull,Skull,Diamond,Diamond,Coin,Coin,Coin,Coin"
+    Then player puts "5" in Chest
+    And player re-rolls dices "3,4" and gets "Skull,Skull,Skull,Coin,Coin,Coin,Coin,Coin"
+    And Player die and scores 600 including Chest
+
