@@ -32,8 +32,8 @@ public class Part3StepDefs {
 
     }
 
-    @And("player {int} rolls {string} and stops")
-    public void playerRolls(int arg0, String arg1) {
+    @And("player {int} rolls {string} and scores {int}")
+    public void playerRolls(int arg0, String arg1, int arg2) {
         d = g.getGameDices();
         List<String> rolls = new ArrayList<>(Arrays.asList(arg1.split(",")));
 
@@ -44,6 +44,7 @@ public class Part3StepDefs {
 
         tgs.playTurn(arg0-1,d,c);
         //System.out.println(tgs.scores[arg0-1]);
+        Assertions.assertEquals(arg2,tgs.scores[arg0-1]);
 
 
 
@@ -77,8 +78,8 @@ public class Part3StepDefs {
 
     }
 
-    @And("player {int} rerolls {string} and gets {string} and stops")
-    public void playerRerollAndGets(int arg0, String arg1, String arg2) {
+    @And("player {int} rerolls {string} and gets {string} and scores {int}")
+    public void playerRerollAndGets(int arg0, String arg1, String arg2, int arg3) {
 
         List<String> pos = new ArrayList<>(Arrays.asList(arg1.split(",")));
         int[] pos2 = new int[pos.size()];
@@ -98,6 +99,7 @@ public class Part3StepDefs {
 
         tgs.playTurn(arg0-1,d,c);
         //System.out.println(tgs.scores[arg0-1]);
+        Assertions.assertEquals(arg3,tgs.scores[arg0-1]);
     }
 
     @Then("game is over and player {int} scores {int} , player {int} scores {int} and player {int} scores {int}")
