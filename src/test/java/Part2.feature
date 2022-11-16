@@ -142,7 +142,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     When Card is "Skulls" with value 2 and bonus 0
     Then player re-rolls dices "3,5,7" and gets "Skull,Skull,Skull,Monkey,Skull,Monkey,Sword,Monkey"
     And player re-rolls dices "4,6,7,8" and gets "Skull,Skull,Skull,Skull,Skull,Skull,Sword,Skull"
-    Then incurs a deduction of 900 for other players
+    And incurs a deduction of 900 for other players
     And scores 0
 
   @TresureChest
@@ -151,9 +151,9 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     When Card is "Chest" with value 1 and bonus 0
     Then player puts "6,7,8" in Chest
     And player re-rolls dices "4,5" and gets "Parrot,Parrot,Parrot,Parrot,Parrot,Diamond,Diamond,Coin"
-    Then player puts "1,2,3,4" in Chest
+    And player puts "1,2,3,4" in Chest
     And takes out "6,7,8" from Chest
-    Then player re-rolls dices "6,7,8" and gets "Parrot,Parrot,Parrot,Parrot,Parrot,Skull,Coin,Parrot"
+    And player re-rolls dices "6,7,8" and gets "Parrot,Parrot,Parrot,Parrot,Parrot,Skull,Coin,Parrot"
     And Player scores 1100 including Chest
 
   @TresureChest2
@@ -162,7 +162,7 @@ Feature: Miscellaneous Fortune Cards and Full Chest bonus
     When Card is "Chest" with value 1 and bonus 0
     Then player puts "6,7,8" in Chest
     And player re-rolls dices "3,4,5" and gets "Skull,Skull,Diamond,Diamond,Coin,Coin,Coin,Coin"
-    Then player puts "5" in Chest
+    And player puts "5" in Chest
     And player re-rolls dices "3,4" and gets "Skull,Skull,Skull,Coin,Coin,Coin,Coin,Coin"
     And Player die and scores 600 including Chest
 
