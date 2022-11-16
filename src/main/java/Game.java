@@ -84,6 +84,7 @@ public class Game implements Serializable {
     {
         Map<String,Integer> occurence = new HashMap<>();
         int pts = 0;
+
         for(int i = 0; i<D.length; i++)
         {
             //System.out.println(D[i].reveal());
@@ -172,6 +173,14 @@ public class Game implements Serializable {
         if(cardName.equals("Captain"))
         {
             pts *=2;
+        }
+
+        if(occurence.containsKey("Skull"))
+        {
+            if(occurence.get("Skull") >=3)
+            {
+                pts =0;
+            }
         }
         return pts;
     }
